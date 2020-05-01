@@ -1,12 +1,16 @@
 import colors from 'vuetify/es5/util/colors'
 
+function capitalize(params) {
+  return params[0].toUpperCase() + params.slice(1);
+}
+
 export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    titleTemplate: '%s - ' + capitalize(process.env.npm_package_name),
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -26,6 +30,12 @@ export default {
   */
   css: [
   ],
+  /* 
+  ** Middleware
+  */
+  // router: {
+  //   middleware: ['redirect-to-root']
+  // },
   /*
   ** Plugins to load before mounting the App
   */
@@ -43,7 +53,28 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    ['nuxt-i18n', {
+      detectBrowserLanguage: {
+        useCookie: true,
+        cookieKey: 'i18n_redirected'
+      },
+      locales: [
+        {
+          code: 'es',
+          file: 'es-MX.js'
+        },
+        {
+          code: 'en',
+          file: 'en-US.js'
+        }
+      ],
+      lazy: true,
+      langDir: 'lang/',
+      defaultLocale: 'en'
+    }
+    ]
   ],
+
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -56,18 +87,22 @@ export default {
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: { icons: 'fa' },
     theme: {
+      options: {
+        customProperties: true,
+      },
       dark: false,
       themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
+        light: {
+          primary: "#5E8CC2",
+          accent: "#295f91",
+          secondary: '#7A83D3',
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
-        }
+        },
       }
     }
   },
@@ -78,7 +113,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }
