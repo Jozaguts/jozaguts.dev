@@ -2,13 +2,9 @@
   <!-- App.vue -->
 
   <v-app>
-    <v-app-bar class="bg-main-color" app></v-app-bar>
-    <v-navigation-drawer app>
-      <user-info-card
-        :imgPath="path"
-        :userName="userName"
-        :infoSocialMedia="infoSocialMedia"
-      ></user-info-card>
+    <nav-bar></nav-bar>
+    <v-navigation-drawer width="300" :value="drawer" app>
+      <user-info-card :imgPath="path" :userName="userName" :infoSocialMedia="infoSocialMedia"></user-info-card>
     </v-navigation-drawer>
 
     <v-content>
@@ -27,6 +23,8 @@
 
 <script>
 import UserInfoCard from "~/components/Profile/UserInfoCard";
+import NavBar from "~/components/NavBar";
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -56,7 +54,12 @@ export default {
       ]
     };
   },
-  components: { UserInfoCard }
+  components: { UserInfoCard, NavBar },
+  computed: {
+    ...mapGetters({
+      drawer: "NavBar/drawer"
+    })
+  }
 };
 </script>
 
