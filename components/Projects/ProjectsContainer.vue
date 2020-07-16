@@ -65,7 +65,7 @@ export default {
             {
               id: 1,
               name: "titulo del proyecto",
-              image: "http://placeimg.com/300/200/any",
+              image: "https://placeimg.com/300/200/any",
               flex: 12,
               likes: 4
             },
