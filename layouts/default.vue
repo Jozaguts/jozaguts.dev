@@ -1,9 +1,8 @@
 <template>
   <!-- App.vue -->
-
   <v-app>
     <nav-bar></nav-bar>
-    <v-navigation-drawer width="300" v-model="drawer"  app>
+    <v-navigation-drawer width="300" v-model="showDrawer" temporary  app>
       <user-info-card :imgPath="path" :userName="userName" :infoSocialMedia="infoSocialMedia"></user-info-card>
     </v-navigation-drawer>
 
@@ -24,10 +23,12 @@
 <script>
 import UserInfoCard from "~/components/Profile/UserInfoCard";
 import NavBar from "~/components/NavBar";
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 export default {
+  components: { UserInfoCard, NavBar },
   data() {
     return {
+      showDrawer: false,
       path: require("~/assets/img/perfil.png"),
       userName: "Sagit Gutiérrez",
       infoSocialMedia: [
@@ -54,12 +55,15 @@ export default {
       ]
     };
   },
-  components: { UserInfoCard, NavBar },
- 
   computed: {
-    ...mapGetters('NavBar',{
-      drawer: state => console.log(state)
+    ...mapGetters({
+      getDrawerStatus: 'NavBar/drawer'
     })
+  },
+  watch:{
+    getDrawerStatus() {
+      this.showDrawer = !this.showDrawer;
+    }
   }
 };
 </script>

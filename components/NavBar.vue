@@ -1,6 +1,7 @@
 <template>
-  <v-app-bar class="bg-main-color" app>
+  <v-app-bar class="bg-main-color" :hide-on-scroll="true" app>
     <v-app-bar-nav-icon @click="changeDrawerStatus" dark></v-app-bar-nav-icon>
+    <v-toolbar-title>Jozaguts</v-toolbar-title>
   </v-app-bar>
 </template>
 
