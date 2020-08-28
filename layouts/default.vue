@@ -1,14 +1,15 @@
 <template>
   <!-- App.vue -->
   <v-app>
-    <nav-bar></nav-bar>
+    
+    <nav-bar ></nav-bar>
     <v-navigation-drawer width="300" v-model="showDrawer" temporary  app>
-      <user-info-card :imgPath="path" :userName="userName" :infoSocialMedia="infoSocialMedia"></user-info-card>
+        <user-info-card :imgPath="path" :userName="userName" :infoSocialMedia="infoSocialMedia"></user-info-card>
     </v-navigation-drawer>
 
-    <v-content>
+    <v-content >
       <!-- Provides the application the proper gutter -->
-      <v-container fluid>
+      <v-container >
         <!-- If using vue-router -->
         <nuxt />
       </v-container>
@@ -57,7 +58,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getDrawerStatus: 'NavBar/drawer'
+      getDrawerStatus: 'global/drawer'
     })
   },
   watch:{

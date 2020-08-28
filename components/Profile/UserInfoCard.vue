@@ -4,7 +4,8 @@
     <title-job></title-job>
     <SocialMedia :infoSocialMedia="infoSocialMedia"></SocialMedia>
     <about-component></about-component>
-    <v-btn raised block elevation="14" :color="baseColor" dark large>{{$t('callTo')}}</v-btn>
+    <v-btn raised block elevation="14" :to="localePath('resume', `${this.$i18n.locale}`)" :color="baseColor" dark large>{{$t('callTo')}}</v-btn>
+    
   </v-container>
 </template>
 
@@ -19,7 +20,7 @@ export default {
   computed: {
     baseColor() {
       return this.$vuetify.theme.themes.light.primary;
-    }
+    },
   },
   props: {
     color: {
