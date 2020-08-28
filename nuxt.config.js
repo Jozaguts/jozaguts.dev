@@ -35,7 +35,7 @@ export default {
   */
   router: {
     // middleware: ['redirect-to-root']
-    base: '/jozaguts.dev/'
+    // base: '/jozaguts.dev/'
   },
   /*
   ** Plugins to load before mounting the App

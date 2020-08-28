@@ -1,7 +1,5 @@
 <template>
-  
     <projects-container />
-  
 </template>
 
 <script>
