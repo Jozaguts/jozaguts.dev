@@ -1,15 +1,14 @@
 <template>
   <!-- App.vue -->
   <v-app>
-    
-    <nav-bar ></nav-bar>
-    <v-navigation-drawer width="300" v-model="showDrawer" temporary  app>
-        <user-info-card :imgPath="path" :userName="userName" :infoSocialMedia="infoSocialMedia"></user-info-card>
+    <nav-bar />
+    <v-navigation-drawer width="300" v-model="showDrawer" temporary app>
+      <user-info-card :imgPath="path" :userName="userName" :infoSocialMedia="infoSocialMedia"></user-info-card>
     </v-navigation-drawer>
 
-    <v-content >
+    <v-content>
       <!-- Provides the application the proper gutter -->
-      <v-container >
+      <v-container>
         <!-- If using vue-router -->
         <nuxt />
       </v-container>
@@ -29,6 +28,7 @@ export default {
   components: { UserInfoCard, NavBar },
   data() {
     return {
+      mini: true,
       showDrawer: false,
       path: require("~/assets/img/perfil.png"),
       userName: "Sagit Gutiérrez",
@@ -36,36 +36,36 @@ export default {
         {
           iconColor: undefined,
           icon: "fab fa-linkedin-in",
-          url: "https://www.linkedin.com/in/jozaguts/"
+          url: "https://www.linkedin.com/in/jozaguts/",
         },
         {
           iconColor: undefined,
           icon: "fab fa-behance",
-          url: "https://www.behance.net/jozaguts88a8"
+          url: "https://www.behance.net/jozaguts88a8",
         },
         {
           iconColor: undefined,
           icon: "fab fa-twitter",
-          url: "https://twitter.com/Jozaguts"
+          url: "https://twitter.com/Jozaguts",
         },
         {
           iconColor: undefined,
           icon: "fab fa-facebook",
-          url: "https://www.facebook.com/Jozaguts.dev"
-        }
-      ]
+          url: "https://www.facebook.com/Jozaguts.dev",
+        },
+      ],
     };
   },
   computed: {
     ...mapGetters({
-      getDrawerStatus: 'global/drawer'
-    })
+      getDrawerStatus: "global/drawer",
+    }),
   },
-  watch:{
+  watch: {
     getDrawerStatus() {
       this.showDrawer = !this.showDrawer;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -75,5 +75,8 @@ export default {
 }
 .bg-accent-main-color {
   background-color: var(--v-accent-base) !important;
+}
+#app {
+  font-family: 'Ubuntu', sans-serif;
 }
 </style>

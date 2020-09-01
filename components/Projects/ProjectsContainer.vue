@@ -1,127 +1,154 @@
 <template>
   <v-row>
     <v-col cols="12">
-      <h2 class="text-h2 font-weight-bold ">{{ $t('titleProjectContainer') }}</h2>
+      <h2 class="text-h2 primary--text font-weight-bold">{{ $t('titleProjectContainer') }}</h2>
     </v-col>
-    <v-col
-      cols="12"
-      md="4"
-      lg="4"
-      xl="4"
-      v-for="project in projects"
-      :key="project.id"
-    >
-      <v-row>
-        <v-col>
-          <v-card>
-            <v-row no-gutters>
+    <v-col cols="12" md="4" lg="4" xl="4" align="center" v-for="project in projects" :key="project.id">
+      <v-skeleton-loader
+        class="mx-auto"
+        max-width="300"
+        type="card"
+        v-if="loading"
+      ></v-skeleton-loader>
+      <v-card   max-width="300" v-else>
+        <v-hover>
+          <template v-slot:default="{hover}">
+            <v-row no-gutters style="position:relative">
               <v-col cols="12" class="pa-1" no-gutters>
+
+                <v-card-title class="primary--text font-weight-bold" v-text="project.title"></v-card-title>
                 <v-img
-                  :src="project.mainImage.image"
-                  class="white--text align-end"
+                  :src="project.images[0].src"
+                  class="white--text align-end ma-2"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.2)"
                   height="200px"
                 >
-                  <v-card-title class="primary--text font-weight-bold" v-text="project.title"></v-card-title>
-                  <v-card-subtitle class="black--text font-weight-bold"
-                                   v-text="'route: '+ project.mainImage.route"></v-card-subtitle>
                 </v-img>
               </v-col>
               <v-col cols="6" class="pa-1">
                 <v-img
-                  :src="project.secondImage.image"
-                  class="white--text align-end"
+                  :src="project.images[1].src"
+                  class="white--text align-end ma-2"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.0)"
                   height="200px"
                 >
-                  <v-card-subtitle class="black--text font-weight-bold"
-                                   v-text="'route: '+ project.secondImage.route"></v-card-subtitle>
                 </v-img>
               </v-col>
               <v-col cols="6" class="pa-1">
                 <v-img
-                  :src="project.thirdImage.image"
-                  class="white--text align-end"
+                  :src="project.images[2].src"
+                  class="white--text align-end ma-2"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.0)"
                   height="200px"
                 >
-                  <v-card-subtitle class="black--text font-weight-bold"
-                                   v-text="'route: '+ project.thirdImage.route"></v-card-subtitle>
                 </v-img>
               </v-col>
+              <v-fade-transition>
+                <v-overlay
+                  v-if="hover"
+                  absolute
+                  opacity=".80"
+                  color="#003663"
+                >
+                  <p class="pa-2 white--text">
+                    
+                  </p>
+                </v-overlay>
+              </v-fade-transition>
             </v-row>
-            <v-card-actions>
-              <v-icon v-for="(icon,i) in project.technologyStackIcons" :key="i+icon.icon" :color="icon.color">
-                {{ icon.icon }}
-              </v-icon>
-              <v-spacer></v-spacer>
-              <v-btn icon v-for="btn in project.socialMediaIcons" :key="btn.icon" :href="btn.link" target="_blank">
-                <v-icon>{{ btn.icon }}</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
+          </template>
+        </v-hover>
+        <v-card-actions>
+          <v-icon
+            v-for="(icon,i) in project.technologyStackIcons"
+            :key="i+icon.icon"
+            :color="icon.color"
+          >{{ icon.icon }}
+          </v-icon>
+          <v-spacer></v-spacer>
+          <v-btn
+            icon
+            v-for="btn in project.socialMediaIcons"
+            :key="btn.icon"
+            :href="btn.link"
+            target="_blank"
+          >
+            <v-icon>{{ btn.icon }}</v-icon>
+          </v-btn>
+        </v-card-actions>
+      </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
 export default {
+  created() {
+    this.loading = true;
+  },
+  mounted() {
+    this.loading = false;
+  },
   data() {
     return {
+      loading: true,
       projects: [
         {
           title: "My store",
           id: 1,
-          mainImage: {
-            image: require('~/assets/img/projects/mystore.png'),
-            route: '/'
-          },
-          secondImage: {
-            image: require('~/assets/img/projects/mystore2.png'),
-            route: '/checkout'
-          },
-          thirdImage: {
-            image: require('~/assets/img/projects/mystore3.png'),
-            route: '/admin/products'
-          },
-          technologyStackIcons: [
+          images: [
             {
-              icon: 'fab fa-laravel',
-              color: '#FF2D20'
+              src: require("~/assets/img/projects/mystore.png"),
+              route: "/",
             },
             {
-              icon: 'fab fa-vuejs',
-              color: '#4fc08d'
+              src: require("~/assets/img/projects/mystore2.png"),
+              route: "/checkout",
             },
             {
-              icon: 'fab fa-aws',
-              color: '#FF9900'
-            },
-          ],
-          socialMediaIcons: [
-            {
-              icon: 'fab fa-github',
-              link: 'https://github.com/jozaguts/my-store'
-            },
-            {
-              icon: 'fab fa-behance',
-              link: ''
-            }, {
-              icon: 'fas fa-link',
-              link: 'https://my-store-jozaguts.herokuapp.com/'
-            },
-            {
-              icon: 'far fa-heart',
-              link: ''
+              src: require("~/assets/img/projects/mystore3.png"),
+              route: "/admin/products",
             }
           ],
+          technologyStackIcons: [
+            {
+              icon: "fab fa-laravel",
+              color: "#FF2D20",
+            },
+            {
+              icon: "fab fa-vuejs",
+              color: "#4fc08d",
+            },
+            {
+              icon: "fab fa-aws",
+              color: "#FF9900",
+            },
+          ],
+          socialMediaIcons:
+            [
+              {
+                icon: "fab fa-github",
+                link: "https://github.com/jozaguts/my-store",
+              },
+              {
+                icon: "fab fa-behance",
+                link: "",
+              },
+              {
+                icon: "fas fa-link",
+                link: "https://my-store-jozaguts.herokuapp.com/",
+              },
+              {
+                icon: "far fa-heart",
+                link: "",
+              },
+            ],
           flex: 12,
-          likes: 4
-        },
-      ]
-    };
-  }
+          likes: 4,
+        }
+      ],
+    }
+      ;
+  },
 };
 </script>

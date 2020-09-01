@@ -29,6 +29,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/main.css'
   ],
   /* 
   ** Middleware
