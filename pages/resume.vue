@@ -1,10 +1,10 @@
 <template>
   <section>
     <v-row align-content-md="center" justify-md="center">
-      <v-col justify="left" align="left" cols="9" md="6">
+      <v-col justify="left" align="left" cols="10" md="6">
         <v-card class="d-inline-block mx-auto" width="340" flat>
           <v-row>
-            <v-col align="center" cols="3" md="5" lg="5">
+            <v-col align="center" cols="4" md="5" lg="5">
               <v-img
                 elevation="0"
                 height="100"
@@ -12,26 +12,26 @@
                 :src="img"
               ></v-img>
             </v-col>
-            <v-col cols="9" md="7" lg="7">
+            <v-col cols="8" md="7" lg="7">
               <v-card-title class="font-weight-bold"> Sagit Gutiérrez</v-card-title>
               <v-card-subtitle>Web Developer</v-card-subtitle>
             </v-col>
           </v-row>
         </v-card>
       </v-col>
-      <v-col cols="3" md="6" class="d-flex flex-column justify-space-around align-md-end" justify="space-between">
+      <v-col cols="2" md="6" class="d-flex flex-column align-center justify-space-around align-md-end" justify="space-between">
         <v-btn href="mailto:jozaguts@gmail.com"  text class="text-capitalize">
-          <v-icon color="accent" left>fas fa-envelope</v-icon>
+          <v-icon color="accent" :left="$vuetify.breakpoint.mdAndUp">fas fa-envelope</v-icon>
           <span class="d-none d-md-block d-lg-block">Contact@Jozaguts.dev</span>
         </v-btn>
         <v-btn href="tel:+523222397179" text  class="text-capitalize">
-          <v-icon color="accent" left>fas fa-phone</v-icon>
+          <v-icon color="accent" :left="$vuetify.breakpoint.mdAndUp">fas fa-phone</v-icon>
           <span class="d-none d-md-block d-lg-block ">
           +52 322 239 7179
         </span>
         </v-btn>
         <v-btn text class="text-capitalize">
-          <v-icon color="accent"  left>fas fa-map-marker-alt</v-icon>
+          <v-icon color="accent"  :left="$vuetify.breakpoint.mdAndUp">fas fa-map-marker-alt</v-icon>
           <span class="d-none d-md-block d-lg-block ">
         Puerto Vallarta, Jalisco México
         </span>
