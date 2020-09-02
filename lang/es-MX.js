@@ -15,5 +15,9 @@ export default {
   },
   courses:'Cursos | Certificaciones',
   workHistory: 'Historial de trabajo',
-  academicBackground: 'Antecedentes Academicos'
+  academicBackground: 'Antecedentes Academicos',
+  aboutEcommerce: 'Pequeño E-commerce integrando Laravel, Vuejs, Vuetify, AWS y Stripe \n' +
+    'Laravel: Laravel Passport y Cashier\n' +
+    'VueJs: Vuetify, vuex, vue-router, NuxtJs(Soon)\n' +
+    'Arquitectura Hexagonal\n' 
 }

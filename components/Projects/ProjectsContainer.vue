@@ -51,7 +51,7 @@
                   color="#003663"
                 >
                   <p class="pa-2 white--text">
-                    
+                    {{$t('aboutEcommerce')}}
                   </p>
                 </v-overlay>
               </v-fade-transition>
@@ -72,6 +72,8 @@
             :key="btn.icon"
             :href="btn.link"
             target="_blank"
+            link
+            rel="nofollow"
           >
             <v-icon>{{ btn.icon }}</v-icon>
           </v-btn>
