@@ -1,6 +1,6 @@
 <template>
   <!-- App.vue -->
-  <v-app >
+  <v-app>
     <nav-bar />
     <v-navigation-drawer width="300" v-model="showDrawer" temporary app>
       <user-info-card :imgPath="path" :userName="userName" :infoSocialMedia="infoSocialMedia"></user-info-card>
@@ -9,15 +9,21 @@
     <v-content>
       <!-- Provides the application the proper gutter -->
       <v-container>
-        <!-- If using vue-router -->
+        <v-parallax
+          :src="bannerImage"
+        >
+          <v-row
+            align="center"
+            justify="center"
+          >
+            <v-col class="text-center" cols="12">
+              <h1 class="display-1 d-inline primary black--text font-weight-bold mb-4">Jozaguts/blog</h1>
+              <h4 class="subheading accent--text font-weight-bold ">let's to talk!</h4>
+            </v-col>
+          </v-row>
+        </v-parallax>
         <nuxt />
-        <v-btn @click="turnOn" fixed bottom right>
-        <v-icon >
-          far fa-lightbulb
-        </v-icon>
-        </v-btn>
       </v-container>
-     
     </v-content>
 
     <v-footer app>
@@ -36,6 +42,7 @@ export default {
     return {
       mini: true,
       showDrawer: false,
+      bannerImage: require("~/assets/img/banner.svg"),
       path: require("~/assets/img/perfil.png"),
       userName: "Sagit Gutiérrez",
       infoSocialMedia: [
@@ -62,11 +69,6 @@ export default {
       ],
     };
   },
-  methods: {
-    turnOn(){
-      this.$vuetify.theme.dark  = !this.$vuetify.theme.dark
-    }
-  },
   computed: {
     ...mapGetters({
       getDrawerStatus: "global/drawer",
@@ -80,17 +82,14 @@ export default {
 };
 </script>
 
-<style lang="sass">
-.bg-main-color 
-  background-color: var(--v-primary-base) !important
-  
-.bg-accent-main-color 
-  background-color: var(--v-accent-base) !important
-  
-#app 
-  font-family: 'Ubuntu', sans-serif
-
-.swich-light
-  position: absolute
-  top: 0
+<style>
+.bg-main-color {
+  background-color: var(--v-primary-base) !important;
+}
+.bg-accent-main-color {
+  background-color: var(--v-accent-base) !important;
+}
+#app {
+  font-family: 'Ubuntu', sans-serif;
+}
 </style>

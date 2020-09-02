@@ -1,5 +1,3 @@
-import colors from 'vuetify/es5/util/colors'
-
 function capitalize(params) {
   return params[0].toUpperCase() + params.slice(1);
 }
@@ -89,24 +87,8 @@ export default {
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    defaultAssets: { icons: 'fa' },
-    theme: {
-      options: {
-        customProperties: true,
-      },
-      dark: false,
-      themes: {
-        light: {
-          primary: "#5E8CC2",
-          accent: "#295f91",
-          secondary: '#7A83D3',
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        },
-      }
-    }
+    optionsPath: "./vuetify.options.js",
+    defaultAssets: { icons: 'fa' }
   },
   /*
   ** Build configuration

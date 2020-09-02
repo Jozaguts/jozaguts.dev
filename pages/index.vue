@@ -1,5 +1,5 @@
 <template>
-    <projects-container />
+  <projects-container/>
 </template>
 
 <script>
@@ -8,9 +8,10 @@ import ProjectsContainer from "@/components/Projects/ProjectsContainer";
 export default {
   data() {
     return {
-      title: ""
+      title: "Home"
     };
   },
+
   computed: {
     setTitle() {
       this.$route.fullPath === "/es"
@@ -30,6 +31,12 @@ export default {
           name: "description",
           content:
             "Pagina personal portafolio proyectos y servicios de desarrollo web"
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content:
+            "web developer,  desarrollador web, proyectos, projects, vuejs, laravel, blog, vuetify, pagina web, sitio web, freelance, puerto vallarta"
         }
       ]
     };

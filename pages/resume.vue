@@ -2,9 +2,9 @@
   <section>
     <v-row align-content-md="center" justify-md="center">
       <v-col justify="left" align="left" cols="9" md="6">
-        <v-card class="d-inline-block mx-auto" flat>
+        <v-card class="d-inline-block mx-auto" width="340" flat>
           <v-row>
-            <v-col cols="3">
+            <v-col align="center" cols="3" md="5" lg="5">
               <v-img
                 elevation="0"
                 height="100"
@@ -12,7 +12,7 @@
                 :src="img"
               ></v-img>
             </v-col>
-            <v-col cols="9">
+            <v-col cols="9" md="7" lg="7">
               <v-card-title class="font-weight-bold"> Sagit Gutiérrez</v-card-title>
               <v-card-subtitle>Web Developer</v-card-subtitle>
             </v-col>
@@ -20,21 +20,19 @@
         </v-card>
       </v-col>
       <v-col cols="3" md="6" class="d-flex flex-column justify-space-around align-md-end" justify="space-between">
-        <v-btn href="mailto:jozaguts@gmail.com" color="accent" text class="text-capitalize">
-          <v-icon left>fas fa-envelope</v-icon>
-          <span class="d-none d-md-block d-lg-block black--text">
-          Contact@Jozaguts.dev
-        </span>
+        <v-btn href="mailto:jozaguts@gmail.com"  text class="text-capitalize">
+          <v-icon color="accent" left>fas fa-envelope</v-icon>
+          <span class="d-none d-md-block d-lg-block">Contact@Jozaguts.dev</span>
         </v-btn>
-        <v-btn href="tel:+523222397179" text color="accent" class="text-capitalize">
-          <v-icon left>fas fa-phone</v-icon>
-          <span class="d-none d-md-block d-lg-block black--text">
+        <v-btn href="tel:+523222397179" text  class="text-capitalize">
+          <v-icon color="accent" left>fas fa-phone</v-icon>
+          <span class="d-none d-md-block d-lg-block ">
           +52 322 239 7179
         </span>
         </v-btn>
-        <v-btn text color="accent" class="text-capitalize">
-          <v-icon left>fas fa-map-marker-alt</v-icon>
-          <span class="d-none d-md-block d-lg-block black--text">
+        <v-btn text class="text-capitalize">
+          <v-icon color="accent"  left>fas fa-map-marker-alt</v-icon>
+          <span class="d-none d-md-block d-lg-block ">
         Puerto Vallarta, Jalisco México
         </span>
         </v-btn>
@@ -214,6 +212,12 @@
 <script>
 export default {
   name: "resume",
+  head: {
+    title: 'Resume',
+    meta: [
+      { hid: 'description', name: 'description', content: 'Home page description' }
+    ],
+  },
   data() {
     return {
       img: require("~/assets/img/perfil.png"),
