@@ -42,7 +42,7 @@
     <!--        </v-list-item>-->
     <!--      </v-list>-->
     <!--    </v-navigation-drawer>-->
-    <nav-bar />
+    <nav-bar/>
 
     <!--    <v-navigation-drawer width="250" clipped v-model="showDrawer"  app>-->
     <!--      <user-info-card :imgPath="path" :userName="userName" :infoSocialMedia="infoSocialMedia"></user-info-card>-->
@@ -52,17 +52,7 @@
       <!-- Provides the application the proper gutter -->
       <v-container>
         <!-- If using vue-router -->
-
-        <v-banner height="300">
-          <div class="container d-flex">
-            <v-img :src="bannerImage" contain class="rick-image" height="280" />
-            <div class="content-container d-flex align-start flex-column">
-              <h1 class="ma-4 primary--text">Jozaguts</h1>
-              <h2 class="ma-4 secondary--text">Web developer</h2>
-            </div>
-          </div>
-        </v-banner>
-        <nuxt />
+        <nuxt/>
         <v-btn @click="turnOn" fixed bottom right>
           <v-icon>far fa-lightbulb</v-icon>
         </v-btn>
@@ -78,17 +68,16 @@
 <script>
 import UserInfoCard from "~/components/Profile/UserInfoCard";
 import NavBar from "~/components/NavBar";
-import { mapGetters } from "vuex";
+import {mapGetters} from "vuex";
 
 export default {
-  components: { UserInfoCard, NavBar },
+  components: {UserInfoCard, NavBar},
   data() {
     return {
-      bannerImage: require("~/assets/img/coffe.png"),
       items: [
-        { title: "Home", icon: "mdi-home-city" },
-        { title: "My Account", icon: "mdi-account" },
-        { title: "Users", icon: "mdi-account-group-outline" },
+        {title: "Home", icon: "mdi-home-city"},
+        {title: "My Account", icon: "mdi-account"},
+        {title: "Users", icon: "mdi-account-group-outline"},
       ],
       mini: true,
       showDrawer: true,
@@ -132,18 +121,27 @@ export default {
     getDrawerStatus() {
       this.showDrawer = !this.showDrawer;
     },
-  },
+  }
 };
 </script>
 
 <style lang="sass">
+.main-banner-content
+  & h1, h2, p
+    line-height: 1.2
+
 .rick-image:before
-  content: 'coffe'
+  content: 'coffee lover'
+  font-size: 20px
   position: absolute
-  bottom: 20%
-  left: 30%
-  color: '#5e8cc2'
-  transform: rotate(-40deg)
+  bottom: 15%
+  display: inline-block
+  background: #333
+  padding: 10px
+  font-weight: bold
+  left: 15%
+  color: #5e8cc2
+  transform: rotate(-15deg)
 
 .bg-main-color
   background-color: var(--v-primary-base) !important
@@ -154,7 +152,4 @@ export default {
 #app
   font-family: 'Ubuntu', sans-serif
 
-.swich-light
-  position: absolute
-  top: 0
 </style>

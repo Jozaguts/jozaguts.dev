@@ -1,23 +1,17 @@
 <template>
+  <section>
+    <MainBanner/>
   <projects-container/>
+  </section>
 </template>
 
 <script>
 import ProjectsContainer from "@/components/Projects/ProjectsContainer";
+import MainBanner from "@/components/Banner/Main";
 
 export default {
-  data() {
-    return {
-      title: "Home"
-    };
-  },
-
-  computed: {
-    setTitle() {
-      this.$route.fullPath === "/es"
-        ? (this.title = "Inicio")
-        : (this.title = "Home");
-    }
+  components: {
+    ProjectsContainer,MainBanner
   },
   mounted() {
     this.setTitle;
@@ -41,8 +35,17 @@ export default {
       ]
     };
   },
-  components: {
-    ProjectsContainer
-  }
+  data() {
+    return {
+      title: "Home"
+    };
+  },
+  computed: {
+    setTitle() {
+      this.$route.fullPath === "/es"
+        ? (this.title = "Inicio")
+        : (this.title = "Home");
+    }
+  }  
 };
 </script>
