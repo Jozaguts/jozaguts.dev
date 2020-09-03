@@ -3,7 +3,6 @@
       <v-col cols="12" class="d-flex justify-center align-center">
         <v-avatar
           size="150"
-          class="mt-12"
           :color="color != undefined 
             ? color 
             : this.$vuetify.theme.themes.light.accent"

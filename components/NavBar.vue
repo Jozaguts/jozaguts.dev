@@ -1,10 +1,9 @@
 <template>
-    <v-app-bar  dense elevate-on-scroll  height="80" app>
-        <v-toolbar-title v-ripple="{ center: true }" @click="$router.push('/')" class="d-flex align-center pa-2 primary--text justify-center ">
-          <v-icon  size="80" left  v-html="'$vuetify.icons.logo'" />
+    <v-app-bar  dense elevate-on-scroll  height="80" app> 
+      <router-link class="d-flex align-center" to="/">
+          <v-icon  size="50" left  v-html="'$vuetify.icons.logo'" /> 
           Jozaguts
-        </v-toolbar-title>
- 
+      </router-link>
       <v-tabs right>
         <v-tab class="accent--text font-weight-bold" exact to="resume" ripple>Resume</v-tab>
         <v-tab class="accent--text font-weight-bold" exact to="blog" ripple>Blog</v-tab>

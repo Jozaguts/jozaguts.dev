@@ -1,11 +1,10 @@
 <template>
-  <v-container >
-    <avatar-component :color="color" :userName="userName" :imgPath="imgPath"></avatar-component>
-    <title-job></title-job>
-    <SocialMedia :infoSocialMedia="infoSocialMedia"></SocialMedia>
-    <about-component></about-component>
-    <v-btn raised block elevation="14" :to="localePath('resume', `${this.$i18n.locale}`)" :color="baseColor" dark large>{{$t('callTo')}}</v-btn>
-    
+  <v-container>
+    <avatar-component :color="color" :userName="userName" :imgPath="imgPath"/>
+    <title-job/>
+    <SocialMedia :infoSocialMedia="infoSocialMedia"/>
+    <about-component/>
+    <v-btn raised block elevation="14" :to="localePath('resume', `${this.$i18n.locale}`)" :color="baseColor" dark large v-text="$t('callTo')"/>
   </v-container>
 </template>
 
@@ -16,7 +15,7 @@ import TitleJob from "~/components/Profile/TitleJob";
 import AboutComponent from "~/components/Profile/About";
 
 export default {
-  components: { SocialMedia, AvatarComponent, TitleJob, AboutComponent },
+  components: {SocialMedia, AvatarComponent, TitleJob, AboutComponent},
   computed: {
     baseColor() {
       return this.$vuetify.theme.themes.light.primary;
