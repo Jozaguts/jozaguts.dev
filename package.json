@@ -13,8 +13,11 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/recaptcha": "^0.6.2",
+    "express": "^4.17.1",
     "nuxt": "^2.0.0",
-    "nuxt-i18n": "^6.10.1"
+    "nuxt-i18n": "^6.10.1",
+    "vee-validate": "^3.3.9"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",

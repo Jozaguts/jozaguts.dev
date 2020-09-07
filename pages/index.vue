@@ -1,20 +1,30 @@
 <template>
-  <section>
-    <MainBanner/>
-  <projects-container/>
-  </section>
+  <v-container>
+    <IndexBanner/>
+    <projects-container/>
+    <v-row>
+      <v-col cols="12">
+        <ContactForm/>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 import ProjectsContainer from "@/components/Projects/ProjectsContainer";
-import MainBanner from "@/components/Banner/Main";
+import IndexBanner from "@/components/Banners/IndexBanner";
+import ContactForm from "@/components/ContactForm";
 
 export default {
   components: {
-    ProjectsContainer,MainBanner
+    ProjectsContainer, IndexBanner, ContactForm
   },
   mounted() {
     this.setTitle;
+    this.$nextTick(() => {
+      this.loading = false;
+    })
+
   },
   head() {
     return {
@@ -37,7 +47,8 @@ export default {
   },
   data() {
     return {
-      title: "Home"
+      title: "Home",
+      loading: true
     };
   },
   computed: {
@@ -45,7 +56,11 @@ export default {
       this.$route.fullPath === "/es"
         ? (this.title = "Inicio")
         : (this.title = "Home");
-    }
-  }  
+    },
+  }
 };
 </script>
+<style lang="sass">
+.container > .row:nth-child(odd)
+  background-color: #333
+</style>

@@ -28,6 +28,7 @@ export default {
     },
   },
   icons: {
+    // iconfont: 'fa',
     values: {
       logo: {
         component: logo 

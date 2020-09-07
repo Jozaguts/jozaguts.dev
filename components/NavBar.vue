@@ -1,15 +1,22 @@
 <template>
-    <v-app-bar  dense elevate-on-scroll  height="80" app> 
-      <router-link class="d-flex align-center" to="/">
-          <v-icon  size="50" left  v-html="'$vuetify.icons.logo'" /> 
-          Jozaguts
-      </router-link>
-      <v-tabs right>
-        <v-tab class="accent--text font-weight-bold" exact to="resume" ripple>Resume</v-tab>
-        <v-tab class="accent--text font-weight-bold" exact to="blog" ripple>Blog</v-tab>
-      </v-tabs>
-    </v-app-bar>
-  
+  <v-app-bar dense elevate-on-scroll height="80" app>
+    <router-link class="d-flex align-center" to="/">
+      <img src="~/assets/img/logo.svg" alt="logo" width="50" class="mr-2">
+      <!--          <v-icon  size="50" left  v-html="'$vuetify.icons.logo'" /> -->
+      Jozaguts
+    </router-link>
+    <v-tabs right>
+      <v-tab class="accent--text font-weight-bold" exact to="about-me" ripple>About me</v-tab>
+      <v-tab class="accent--text font-weight-bold" exact to="blog" ripple>Blog</v-tab>
+      <v-tab class="accent--text font-weight-bold" exact to="resume" ripple>Resume</v-tab>
+      <v-tab class="accent--text font-weight-bold"   @click="turnOn" ripple>
+        <v-btn fixed bottom right>
+          <v-icon color="primary">far fa-lightbulb</v-icon>
+        </v-btn>
+      </v-tab>
+    </v-tabs>
+  </v-app-bar>
+
 </template>
 
 <script>
@@ -22,7 +29,10 @@ export default {
   methods: {
     ...mapMutations({
       changeDrawerStatus: 'global/toggleDrawerStatus'
-    })
+    }),
+    turnOn() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    },
   }
 };
 </script>

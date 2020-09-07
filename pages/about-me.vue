@@ -39,7 +39,7 @@
       </v-col>
     </v-row><!-- first row name and address-->
     <v-row align-content-md="center" justify-md="center">
-      <v-col justify="left" class="d-flex flex-column" align="left" cols="12" md="4">
+      <v-col justify="left" class="d-flex flex-column" align="left" cols="12" md="6">
         <div class="content-container">
           <header class="d-flex">
             <v-icon left color="accent">
@@ -54,7 +54,58 @@
           </div>
         </div>
       </v-col>
-      <v-col justify="left" class="d-flex flex-column" align="left" cols="12" md="8">
+      <v-col justify="left" class="d-flex flex-column" align="left" cols="12" md="6">
+        <div class="content-container">
+          <header class="d-flex">
+            <v-icon left color="accent">
+              far fa-dot-circle
+            </v-icon>
+            <h2 class="text-subtitle-2 "> {{$t('academicBackground')}}</h2>
+          </header>
+          <div class="content mt-5">
+            <v-card outlined elevation="10">
+              <v-card-title> {{$t('degree')}}</v-card-title>
+              <v-card-subtitle>{{$t('university.date')}}</v-card-subtitle>
+              <v-card-text>{{$t('university.name')}}</v-card-text>
+            </v-card>
+          </div>
+        </div>
+    
+
+      </v-col>
+    </v-row>
+    <v-row align-content-md="center" justify-md="center">
+      <v-col justify="left" class="d-flex flex-column" align="left" cols="12" md="5">
+        <div class="content-container">
+          <header class="d-flex">
+            <v-icon left color="accent">
+              far fa-dot-circle
+            </v-icon>
+            <h2 class="text-subtitle-2 "> {{$t('workHistory')}}</h2>
+          </header>
+          <div class="content d-flex justify-start">
+            <v-timeline dense>
+              <v-timeline-item
+                color="accent"
+                fill-dot
+                icon="far fa-star"
+                small
+                v-for="work in  workHistory" :key="work.companyName"
+              >
+                <v-row>
+                  <v-col>
+                    <h3 class="text--primary"> {{ work.companyName }}</h3>
+                    <h4 class="text--secondary">({{ work.dateY }})</h4>
+                    <em>{{ $t("axovia") }}</em>
+                  </v-col>
+                </v-row>
+              </v-timeline-item>
+            </v-timeline>
+          </div>
+        </div>
+
+      </v-col>
+      <v-col justify="left" class="d-flex flex-column" align="left" cols="12" md="7">
         <div class="content-container">
           <header class="d-flex">
             <v-icon left color="accent">
@@ -154,68 +205,18 @@
             </v-timeline>
           </div>
         </div>
-
       </v-col>
-    </v-row><!-- second row about me and course-->
-    <v-row align-content-md="center" justify-md="center">
-      <v-col justify="left" class="d-flex flex-column" align="left" cols="12" md="6">
-        <div class="content-container">
-          <header class="d-flex">
-            <v-icon left color="accent">
-              far fa-dot-circle
-            </v-icon>
-            <h2 class="text-subtitle-2 "> {{$t('workHistory')}}</h2>
-          </header>
-          <div class="content d-flex justify-start">
-            <v-timeline dense>
-              <v-timeline-item
-                color="accent"
-                fill-dot
-                icon="far fa-star"
-                small
-                v-for="work in  workHistory" :key="work.companyName"
-              >
-                <v-row>
-                  <v-col>
-                    <h3 class="text--primary"> {{ work.companyName }}</h3>
-                    <h4 class="text--secondary">({{ work.dateY }})</h4>
-                    <em>{{ $t("axovia") }}</em>
-                  </v-col>
-                </v-row>
-              </v-timeline-item>
-            </v-timeline>
-          </div>
-        </div>
-
-      </v-col>
-      <v-col justify="left" class="d-flex flex-column" align="left" cols="12" md="6">
-        <div class="content-container">
-          <header class="d-flex">
-            <v-icon left color="accent">
-              far fa-dot-circle
-            </v-icon>
-            <h2 class="text-subtitle-2 "> {{$t('academicBackground')}}</h2>
-          </header>
-          <div class="content mt-5">
-            <v-card outlined elevation="10">
-              <v-card-title> {{$t('degree')}}</v-card-title>
-              <v-card-subtitle>{{$t('university.date')}}</v-card-subtitle>
-              <v-card-text>{{$t('university.name')}}</v-card-text>
-            </v-card>
-          </div>
-        </div>
-      </v-col>
-    </v-row><!-- third row work history and academic background-->
+    </v-row>
   </section>
 </template>
 
 <script>
 export default {
-  name: "resume",
+  name: "about-me",
   head: {
-    title: 'Resume',
+    title: 'About Me',
     meta: [
-      { hid: 'description', name: 'description', content: 'Home page description' }
+      { hid: 'description', name: 'description', content: 'About page' }
     ],
   },
   data() {
