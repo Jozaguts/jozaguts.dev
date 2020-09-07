@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row  class="py-10">
     <v-col cols="12">
       <h2 class="text-h2 primary--text font-weight-bold">{{ $t('titleProjectContainer') }}</h2>
     </v-col>

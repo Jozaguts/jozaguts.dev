@@ -53,9 +53,6 @@
       <v-container>
         <!-- If using vue-router -->
         <nuxt/>
-        <v-btn @click="turnOn" fixed bottom right>
-          <v-icon>far fa-lightbulb</v-icon>
-        </v-btn>
       </v-container>
     </v-content>
 
@@ -106,11 +103,6 @@ export default {
         },
       ],
     };
-  },
-  methods: {
-    turnOn() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-    },
   },
   computed: {
     ...mapGetters({
