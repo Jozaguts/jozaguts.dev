@@ -1,41 +1,30 @@
 <template>
-  <v-row>
-    <v-col v-if="loading">
-      <v-skeleton-loader
-        class="mx-auto"
-        type="image"
-        width="100%"
-        transition="scale-transition"
-      ></v-skeleton-loader>
-    </v-col>
-    <v-col cols="12" class="d-flex align-center justify-center" v-else>
-      <MainBanner/>
-    </v-col>
-    <v-col cols="12">
-      <projects-container/>
-    </v-col>
-    <v-divider></v-divider>
-    <v-col cols="12">
-      <ContactForm/>
-    </v-col>
-  </v-row>
+  <v-container>
+    <IndexBanner/>
+    <projects-container/>
+    <v-row>
+      <v-col cols="12">
+        <ContactForm/>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 import ProjectsContainer from "@/components/Projects/ProjectsContainer";
-import MainBanner from "@/components/Banner/Main";
+import IndexBanner from "@/components/Banners/IndexBanner";
 import ContactForm from "@/components/ContactForm";
 
 export default {
   components: {
-    ProjectsContainer, MainBanner, ContactForm
+    ProjectsContainer, IndexBanner, ContactForm
   },
   mounted() {
     this.setTitle;
-    this.$nextTick( () => {
+    this.$nextTick(() => {
       this.loading = false;
     })
-   
+
   },
   head() {
     return {
@@ -67,7 +56,11 @@ export default {
       this.$route.fullPath === "/es"
         ? (this.title = "Inicio")
         : (this.title = "Home");
-    }
+    },
   }
 };
 </script>
+<style lang="sass">
+.container > .row:nth-child(odd)
+  background-color: #333
+</style>

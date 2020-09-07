@@ -1,21 +1,20 @@
 <template>
-  <v-row  class="py-10">
-    <v-col cols="12">
-      <h2 class="text-h2 primary--text font-weight-bold">{{ $t('titleProjectContainer') }}</h2>
-    </v-col>
+  <v-row class="py-10">
     <v-col cols="12" md="4" lg="4" xl="4" align="center" v-for="project in projects" :key="project.id">
+      <header class="mb-5 grey darken-3">
+        <h2 class="text-h2 primary--text font-weight-bold">{{ $t('titleProjectContainer') }}</h2>
+      </header>
       <v-skeleton-loader
         class="mx-auto"
         max-width="300"
         type="card"
         v-if="loading"
       ></v-skeleton-loader>
-      <v-card   max-width="300" v-else>
+      <v-card max-width="300" v-else>
         <v-hover>
           <template v-slot:default="{hover}">
             <v-row no-gutters style="position:relative">
               <v-col cols="12" class="pa-1" no-gutters>
-
                 <v-card-title class="primary--text font-weight-bold" v-text="project.title"></v-card-title>
                 <v-img
                   :src="project.images[0].src"
@@ -51,7 +50,7 @@
                   color="#003663"
                 >
                   <p class="pa-2 white--text">
-                    {{$t('aboutEcommerce')}}
+                    {{ $t('aboutEcommerce') }}
                   </p>
                 </v-overlay>
               </v-fade-transition>
