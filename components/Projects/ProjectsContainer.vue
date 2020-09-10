@@ -1,5 +1,5 @@
 <template>
-  <v-row class="py-10">
+  <v-row class="py-10" no-gutters>
     <v-col cols="12" md="4" lg="4" xl="4" align="center" v-for="project in projects" :key="project.id">
       <header class="mb-5 grey darken-3">
         <h2 class="text-h2 primary--text font-weight-bold">{{ $t('titleProjectContainer') }}</h2>

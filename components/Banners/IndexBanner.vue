@@ -1,17 +1,15 @@
 <template>
-  <v-row>
-    <v-col v-if="loading">
+  <v-row no-gutters>
+    <v-col cols="12" class="d-flex align-center justify-center">
       <v-skeleton-loader
         class="mx-auto"
         type="image"
         width="100%"
         transition="scale-transition"
+        v-if="loading"
       ></v-skeleton-loader>
-    </v-col>
-    <v-col v-else cols="12" class="d-flex align-center justify-center">
-      <v-banner >
+      <v-banner v-else class="container" >
           <v-row >
-            
             <v-col cols="6" md="4" lg="4">
               <v-tooltip max-width="190" left>
                 <template v-slot:activator="{ on, attrs }">
@@ -59,7 +57,7 @@ export default {
     return {
       bannerImage: require("~/assets/img/coffe.png"),
       technologies: require("~/assets/img/headline-blog.png"),
-      loading: false
+      loading: true
     }
   },
   mounted() {

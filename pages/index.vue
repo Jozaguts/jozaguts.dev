@@ -2,11 +2,7 @@
   <v-container>
     <IndexBanner/>
     <projects-container/>
-    <v-row>
-      <v-col cols="12">
-        <ContactForm/>
-      </v-col>
-    </v-row>
+    <ContactForm/>
   </v-container>
 </template>
 
@@ -61,6 +57,8 @@ export default {
 };
 </script>
 <style lang="sass">
-.container > .row:nth-child(odd)
+#app
   background-color: #333
+.container > .row:nth-child(even)
+  //background-color: #333
 </style>
