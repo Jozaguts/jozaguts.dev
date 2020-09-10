@@ -44,7 +44,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    {src: '~/plugins/Vee-validate.js', ssr: false}
+    {src: '~/plugins/Vee-validate.js', ssr: false},
+    { src: '~plugins/google-analytics.js', mode: 'client' }
   ],
   /*
   ** Nuxt.js dev-modules

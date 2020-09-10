@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" align="center" class="py-10">
+  <v-row justify="center" align="center" class="py-10" no-gutters>
     <client-only>
       <v-col cols="6">
         <header class="pb-5">
