@@ -2,19 +2,37 @@
   <v-app-bar dense elevate-on-scroll height="80" app>
     <router-link class="d-flex align-center" to="/">
       <img src="~/assets/img/logo.svg" alt="logo" width="50" class="mr-2">
-      <!--          <v-icon  size="50" left  v-html="'$vuetify.icons.logo'" /> -->
-      <h1>Jozaguts</h1> 
+      <h1 class="d-none d-md-flex d-lg-flex">Jozaguts</h1>
     </router-link>
-    <v-tabs right>
-      <v-tab class="accent--text font-weight-bold" exact to="about-me" ripple>About me</v-tab>
-      <v-tab class="accent--text font-weight-bold" exact to="blog" ripple>Blog</v-tab>
-      <v-tab class="accent--text font-weight-bold" exact to="resume" ripple>Resume</v-tab>
-      <v-tab class="accent--text font-weight-bold"   @click="turnOn" ripple>
-        <v-btn fixed bottom right>
-          <v-icon color="primary">far fa-lightbulb</v-icon>
-        </v-btn>
-      </v-tab>
-    </v-tabs>
+    <v-spacer></v-spacer>
+    <v-list width="auto" class="d-none d-lg-flex d-md-flex justify-center align-center">
+      <v-list-item class="accent--text font-weight-bold" exact to="about-me" ripple>
+        <v-list-content class="text-center mx-auto">
+          About me
+        </v-list-content>
+      </v-list-item>
+
+      <v-list-item class="accent--text font-weight-bold" exact to="blog" ripple>
+        <v-list-content class="text-center mx-auto">
+          blog
+        </v-list-content>
+      </v-list-item>
+
+      <v-list-item class="accent--text font-weight-bold" exact to="resume" ripple>
+        <v-list-content class="text-center mx-auto">
+          Resume
+        </v-list-content>
+      </v-list-item>
+
+      <v-list-item class="accent--text font-weight-bold" exact @click="turnOn" ripple>
+        <v-list-content>
+          <v-btn >
+            <v-icon color="primary">far fa-lightbulb</v-icon>
+          </v-btn>
+        </v-list-content>
+      </v-list-item>
+      
+    </v-list>
   </v-app-bar>
 
 </template>
@@ -23,9 +41,6 @@
 import {mapMutations} from 'vuex';
 
 export default {
-  data() {
-    return {};
-  },
   methods: {
     ...mapMutations({
       changeDrawerStatus: 'global/toggleDrawerStatus'
