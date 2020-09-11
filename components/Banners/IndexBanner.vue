@@ -8,7 +8,7 @@
         transition="scale-transition"
         v-if="loading"
       ></v-skeleton-loader>
-      <v-banner v-else class="container" max-width="900">
+      <v-banner v-else class="container" max-width="900" ripple>
         <v-row class=" d-flex">
           <v-col cols="6" md="4" lg="4" class="order-2 order-md-1 order-lg-1">
             <v-tooltip max-width="190" left>
@@ -23,6 +23,7 @@
                        alt="rick drinking 'coffee'"
                        height="250"
                        transition="scale-transition"
+                       
                 />
               </template>
               

@@ -1,11 +1,11 @@
 <template>
   <v-row class="my-10 py-5" no-gutters id="ContactForm">
-    <v-col cols="12" :align="[this.$vuetify.breakpoint.smAndDown ? 'center' : 'left']">
+    <v-col cols="12" :align="[$vuetify.breakpoint.smAndDown ? 'center' : 'left']">
       <header class="pb-5" >
         <h2 class="primary--text">Contact form</h2>
       </header>
     </v-col>
-    <v-col cols="12" md="6" lg="6" :align="[this.$vuetify.breakpoint.smAndDown ? 'center' : 'left']">
+    <v-col cols="12" md="6" lg="6" :align="[$vuetify.breakpoint.smAndDown ? 'center' : 'left']">
       <ValidationObserver v-slot="{valid}" ref="contactForm">
         <v-lazy
           v-model="isActive"
