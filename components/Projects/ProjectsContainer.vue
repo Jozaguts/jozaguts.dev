@@ -1,9 +1,12 @@
 <template>
-  <v-row class="py-10" no-gutters>
-    <v-col cols="12" md="4" lg="4" xl="4" align="center" v-for="project in projects" :key="project.id">
-      <header class="mb-5 grey darken-3">
+  <v-row class="my-10 py-5" no-gutters id="projects">
+    <v-col cols="12"  :align="[this.$vuetify.breakpoint.smAndDown ? 'center' : 'left']">
+      <header class="py-5">
         <h2 class="text-h2 primary--text font-weight-bold">{{ $t('titleProjectContainer') }}</h2>
       </header>
+    </v-col>
+    <v-col cols="12" md="4" lg="4" xl="4" align-md="left" align-lg="left" align="center" v-for="project in projects"
+           :key="project.id">
       <v-skeleton-loader
         class="mx-auto"
         max-width="300"

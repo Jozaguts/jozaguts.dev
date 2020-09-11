@@ -2,6 +2,7 @@
   <v-container>
     <IndexBanner/>
     <projects-container/>
+    <v-divider/>
     <ContactForm/>
   </v-container>
 </template>
@@ -20,24 +21,26 @@ export default {
     this.$nextTick(() => {
       this.loading = false;
     })
-
   },
   head() {
     return {
       title: this.title,
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      },
       meta: [
         {
           hid: "description",
           name: "description",
-          content:
-            "Pagina personal portafolio proyectos y servicios de desarrollo web"
-        },
+          content: this.$i18n.t('SEO.index.description')},
         {
           hid: "keywords",
           name: "keywords",
-          content:
-            "web developer,  desarrollador web, proyectos, projects, vuejs, laravel, blog, vuetify, pagina web, sitio web, freelance, puerto vallarta"
-        }
+          content: this.$i18n.t('SEO.index.keywords')
+        },
+        {name: 'robots', hid: "robots", content:'index, follow'},
+        {name: 'author', hid: "author", content:'Jozaguts - Sagit Gutiérrez'},
+       
       ]
     };
   },
@@ -50,15 +53,12 @@ export default {
   computed: {
     setTitle() {
       this.$route.fullPath === "/es"
-        ? (this.title = "Inicio")
-        : (this.title = "Home");
+        ? (this.title = "Jozaguts - Desarrollador web")
+        : (this.title = "Jozaguts - Web Developer");
     },
   }
 };
 </script>
 <style lang="sass">
-#app
-  background-color: #333
-.container > .row:nth-child(even)
-  //background-color: #333
+
 </style>

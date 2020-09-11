@@ -19,5 +19,12 @@ export default {
   aboutEcommerce: 'Pequeño E-commerce integrando Laravel, Vuejs, Vuetify, AWS y Stripe \n' +
     'Laravel: Laravel Passport y Cashier\n' +
     'VueJs: Vuetify, vuex, vue-router, NuxtJs(Soon)\n' +
-    'Arquitectura Hexagonal\n' 
+    'Arquitectura Hexagonal\n',
+  SEO:{
+    index:{
+      description: 'Personal website projects ideas experience and development issues ',
+      keywords: 'web developer,desarrollador web,proyectos,projects,vuejs,laravel,blog,vuetify,pagina web,sitio web, freelance, AWS, EC2, R53, S3, '
+    }
+  },
+  rickPhrase: 'Nadie existe a propósito. Nadie pertenece a ninguna parte. Todos vamos a morir. <strong class="primary--text">¡Vamos a desarrollar!</strong>'
 }

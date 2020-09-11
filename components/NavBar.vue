@@ -3,7 +3,7 @@
     <router-link class="d-flex align-center" to="/">
       <img src="~/assets/img/logo.svg" alt="logo" width="50" class="mr-2">
       <!--          <v-icon  size="50" left  v-html="'$vuetify.icons.logo'" /> -->
-      Jozaguts
+      <h1>Jozaguts</h1> 
     </router-link>
     <v-tabs right>
       <v-tab class="accent--text font-weight-bold" exact to="about-me" ripple>About me</v-tab>

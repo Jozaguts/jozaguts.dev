@@ -3,7 +3,7 @@
   <v-app>
     <nav-bar />
     <v-navigation-drawer width="300" v-model="showDrawer" temporary app>
-      <user-info-card :imgPath="path" :userName="userName" :infoSocialMedia="infoSocialMedia"></user-info-card>
+     
     </v-navigation-drawer>
 
     <v-content>
@@ -33,11 +33,10 @@
 </template>
 
 <script>
-import UserInfoCard from "~/components/Profile/UserInfoCard";
 import NavBar from "~/components/NavBar";
 import { mapGetters } from "vuex";
 export default {
-  components: { UserInfoCard, NavBar },
+  components: {  NavBar },
   data() {
     return {
       mini: true,

@@ -1,8 +1,38 @@
 <template>
   <v-app>
+    <v-navigation-drawer
+      :mini-variant="mini"
+      permanent
+      app
+    >
+      <v-list class="mt-10 pt-10">
+        <v-list-item v-for="icon in socialMedia" :key="icon.icon">
+          <v-list-item-content class="text-center">
+            <a :href="icon.value" target="_blank">
+              <v-icon color="white">
+               {{icon.icon}}
+              </v-icon>
+            </a>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <v-spacer></v-spacer>
+      <v-list class="mt-10 pt-10">
+        <v-list-item v-for="icon in drawerNavigation" :key="icon.icon">
+          <v-list-item-content class="text-center">
+            <a  v-scroll-to="icon.value" >
+              <v-icon color="white">
+                {{icon.icon}}
+              </v-icon>
+            </a>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    
     <nav-bar/>
     <v-content>
-        <nuxt/>
+      <nuxt/>
     </v-content>
     <v-footer app>
       <!-- -->
@@ -10,12 +40,12 @@
   </v-app>
 </template>
 <script>
-import UserInfoCard from "~/components/Profile/UserInfoCard";
+
 import NavBar from "~/components/NavBar";
 import {mapGetters} from "vuex";
 
 export default {
-  components: {UserInfoCard, NavBar},
+  components: {NavBar},
   data() {
     return {
       items: [
@@ -24,63 +54,48 @@ export default {
         {title: "Users", icon: "mdi-account-group-outline"},
       ],
       mini: true,
-      showDrawer: true,
-      path: require("~/assets/img/perfil.png"),
-      userName: "Sagit Gutiérrez",
-      infoSocialMedia: [
+      socialMedia: [
         {
-          iconColor: undefined,
           icon: "fab fa-linkedin-in",
-          url: "https://www.linkedin.com/in/jozaguts/",
+          value: "https://www.linkedin.com/in/jozaguts/",
         },
         {
-          iconColor: undefined,
           icon: "fab fa-behance",
-          url: "https://www.behance.net/jozaguts88a8",
+          value: "https://www.behance.net/jozaguts88a8",
         },
         {
-          iconColor: undefined,
           icon: "fab fa-twitter",
-          url: "https://twitter.com/Jozaguts",
+          value: "https://twitter.com/Jozaguts",
         },
         {
-          iconColor: undefined,
           icon: "fab fa-facebook",
-          url: "https://www.facebook.com/Jozaguts.dev",
+          value: "https://www.facebook.com/Jozaguts.dev",
+        },
+        {
+          icon: "fab fa-instagram",
+          value: "https://www.instagram.com/Jozaguts",
         },
       ],
+      drawerNavigation:[
+        {
+          icon: 'fas fa-chevron-up',
+          value: '#banner'
+        },
+        {
+          icon: 'fas fa-grip-lines',
+          value: '#projects'
+        },
+        {
+          icon: 'fas fa-chevron-down',
+          value: '#ContactForm'
+        }
+      ]
     };
   },
-  computed: {
-    ...mapGetters({
-      getDrawerStatus: "global/drawer",
-    }),
-  },
-  watch: {
-    getDrawerStatus() {
-      this.showDrawer = !this.showDrawer;
-    },
-  }
 };
 </script>
 
 <style lang="sass">
-.main-banner-content
-  & h1, h2, p
-    line-height: 1.2
-
-.rick-image:before
-  content: 'coffee lover'
-  font-size: 20px
-  position: absolute
-  bottom: 15%
-  display: inline-block
-  background: #333
-  padding: 10px
-  font-weight: bold
-  left: 15%
-  color: #5e8cc2
-  transform: rotate(-15deg)
 
 .bg-main-color
   background-color: var(--v-primary-base) !important

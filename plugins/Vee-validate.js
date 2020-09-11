@@ -11,11 +11,12 @@ extend('required_if', required_if);
 
 
 // Register it globally
-Vue.component('ValidationProvider', ValidationProvider)
-Vue.component('ValidationObserver', ValidationObserver)
-// export default {
-//   components: {
-//     'ValidationProvider': ValidationProvider,
-//     'ValidationObserver': ValidationObserver
-//   }
-// }
+// Vue.component('ValidationProvider', ValidationProvider)
+// Vue.component('ValidationObserver', ValidationObserver)
+
+export default {
+  components: {
+    'ValidationProvider': ValidationProvider,
+    'ValidationObserver': ValidationObserver
+  }
+}

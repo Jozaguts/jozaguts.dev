@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <v-container>
     <v-row align-content-md="center" justify-md="center">
       <v-col justify="left" align="left" cols="10" md="6">
         <v-card class="d-inline-block mx-auto" width="340" flat>
@@ -207,7 +207,7 @@
         </div>
       </v-col>
     </v-row>
-  </section>
+  </v-container>
 </template>
 
 <script>

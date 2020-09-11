@@ -1,17 +1,12 @@
 import colors from 'vuetify/es5/util/colors'
 
-
-function capitalize(params) {
-  return params[0].toUpperCase() + params.slice(1);
-}
-
-export default {
+  export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - ' + capitalize(process.env.npm_package_name),
+    titleTemplate: '%s  ',
     title: process.env.npm_package_name || '',
     meta: [
       {charset: 'utf-8'},
@@ -58,7 +53,7 @@ export default {
   */
   modules: [
     '@nuxtjs/recaptcha',
-    // Doc: https://axios.nuxtjs.org/usage
+    ['vue-scrollto/nuxt', { duration: 300 }],
     '@nuxtjs/axios',
     ['nuxt-i18n', {
       detectBrowserLanguage: {
@@ -83,7 +78,7 @@ export default {
   ],
   recaptcha: {
     /* reCAPTCHA options */
-    hideBadge: false, // Hide badge element (v3 & v2 via size=invisible)
+    hideBadge: true, // Hide badge element (v3 & v2 via size=invisible)
     language: 'en',   // Recaptcha language (v2)
     // siteKey: '6LdAHMkZAAAAAMN6j84gNpzOSUT9Ua52TRSeG6MA', //v2 
     siteKey: '6LelF8kZAAAAAKNACgYCudrBa08u_fzTmLULF3Dv', //v3 Site key for requests
@@ -115,7 +110,7 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
         },
         dark: {
           primary: "#5E8CC2",

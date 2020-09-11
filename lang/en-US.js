@@ -11,7 +11,7 @@ export default {
     ' I look forward to working with you soon.',
   introduce: 'Hi My name is Sagit!, I\'m an IT engineer focused on web development',
   callTo: 'CV',
-  titleProjectContainer: 'Last projects',
+  titleProjectContainer: 'Latest projects',
   axovia: "Here were my beginnings when I was still studying at the university " +
     "I joined the company as an intern, I learned the world of back-end and front-end, " +
     "with layout tasks, scripting, I began to learn laravel and a few months later I began with vuejs",
@@ -19,11 +19,18 @@ export default {
     name: 'Technological University of Bahía de Banderas - UTBB',
     date: '2016 - 2020'
   },
-  courses:'Course | Certifications',
+  courses: 'Course | Certifications',
   workHistory: 'Work History',
   academicBackground: 'Academic background',
   aboutEcommerce: 'Small E-commerce integrating Laravel, Vuejs, Vuetify, AWS and Stripe \n' +
     'Laravel: Laravel Passport and Cashier\n' +
     'VueJs: Vuetify, vuex, vue-router, NuxtJs(Soon)\n' +
-    'Hexagonal Architecture\n'
+    'Hexagonal Architecture\n',
+  SEO:{
+    index:{
+      description: 'Personal website projects ideas experience and development issues ',
+      keywords: 'web developer,web projects, projects, vuejs , laravel , blog , vuetify, freelance, AWS, EC2, R53, S3, '
+    } 
+  },
+  rickPhrase: 'Nobody exists on purpose. Nobody belongs anywhere. Everybody\'s gonna die. <strong class="primary--text">let\'s  go to develop!</strong>'
 }
