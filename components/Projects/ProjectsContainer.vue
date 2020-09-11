@@ -1,24 +1,24 @@
 <template>
   <v-row class="my-10 py-5" no-gutters id="projects">
-    <v-col cols="12"  :align="[this.$vuetify.breakpoint.smAndDown ? 'center' : 'left']">
+    <v-col cols="12"  :align="[$vuetify.breakpoint.smAndDown ? 'center' : 'left']">
       <header class="py-5">
         <h2 class="text-h2 primary--text font-weight-bold">{{ $t('titleProjectContainer') }}</h2>
       </header>
     </v-col>
-    <v-col cols="12" md="4" lg="4" xl="4" align-md="left" align-lg="left" align="center" v-for="project in projects"
+    <v-col cols="12" md="4" lg="4" xl="4" :align="[$vuetify.breakpoint.smAndDown ? 'center' : 'left']"  class="my-5" v-for="project in projects"
            :key="project.id">
       <v-skeleton-loader
         class="mx-auto"
         max-width="300"
-        type="card"
+        type="image"
         v-if="loading"
       ></v-skeleton-loader>
-      <v-card max-width="300" v-else>
+      <v-card max-width="350" v-else>
         <v-hover>
           <template v-slot:default="{hover}">
             <v-row no-gutters style="position:relative">
               <v-col cols="12" class="pa-1" no-gutters>
-                <v-card-title class="primary--text font-weight-bold" v-text="project.title"></v-card-title>
+                <v-card-title class="--text font-weight-bold" v-text="project.title"></v-card-title>
                 <v-img
                   :src="project.images[0].src"
                   class="white--text align-end ma-2"
