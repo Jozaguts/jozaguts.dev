@@ -46,7 +46,7 @@ import colors from 'vuetify/es5/util/colors'
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify'
   ],
   /*
   ** Nuxt.js modules

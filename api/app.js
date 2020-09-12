@@ -1,6 +1,13 @@
-const app = require('express')()
-module.exports = { path: '/api', handler: app }
-app.get('/hello', (req, res) => {
-  console.log('hello nuxt in text')
-  res.send('world')
+const express = require('express')
+const app = express()
+require('dotenv').config()
+
+app.post('/send-message',(req, res) => {
+  
+  res.json('llego')
 })
+
+module.exports ={
+  path:'/api',
+  handler: app
+}
