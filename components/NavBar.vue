@@ -4,7 +4,7 @@
       <img src="~/assets/img/logo.svg" alt="logo" width="50" class="mr-2">
       <h1 class="d-none d-md-flex d-lg-flex">Jozaguts</h1> 
     </router-link>
-    <v-tabs right v-if="$vuetify.breakpoint.mdAndUp">
+    <v-tabs right class="d-none d-lg-block d-md-block" >
       <v-tab class="accent--text font-weight-bold" exact to="about-me" ripple>About me</v-tab>
       <v-tab class="accent--text font-weight-bold" exact to="blog" ripple>Blog</v-tab>
       <v-tab class="accent--text font-weight-bold" exact to="resume" ripple>Resume</v-tab>
