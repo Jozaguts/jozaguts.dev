@@ -46,13 +46,20 @@
         </template>
         <v-list>
           <v-list-item
-            :dark="false"
+            dark
             v-for="(route, index) in routes"
             :key="index.to"
             @click="$router.push(route.to)"
-            class="grey darken-3 my-2 "
+            class=" my-2 "
           >
-            <v-list-item-title class="primary--text font-weight-bold" ripple>{{ route.value }}</v-list-item-title>
+            <v-list-item-title class="primary--text font-weight-bold text-center" ripple>{{ route.value }}</v-list-item-title>
+          </v-list-item>
+          <v-list-item dark class="my-2" @click="turnOn">
+            <v-list-item-title >
+              <v-btn  tile text ripple>
+                <v-icon color="primary" >far fa-lightbulb</v-icon>
+              </v-btn>
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -104,7 +111,7 @@ export default {
         },
         {
           icon: "fab fa-instagram",
-          value: "https://www.instagram.com/Jozaguts",
+          value: "https://www.instagram.com/jozagutsdev",
         },
       ],
       drawerNavigation: [
@@ -123,6 +130,11 @@ export default {
       ]
     };
   },
+  methods:{
+    turnOn(){
+      return this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+    }
+  }
 };
 </script>
 
