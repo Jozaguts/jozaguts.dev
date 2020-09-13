@@ -82,9 +82,10 @@ export default {
     },
     async onSubmit() {
       try {
-        const token = await this.$recaptcha.execute('social')
-        // this.verifyToken(token)
-        console.log('ReCaptcha token:', token)
+         await this.$recaptcha.execute('social')
+        .then((token)=>{
+          this.$axios.post('/api/send-message', {data: this.formData, token })
+        })
       } catch (error) {
         console.log('Login error:', error)
       }
@@ -94,7 +95,7 @@ export default {
     },
     onExpired() {
       console.log('Expired')
-    },
+    }
    
   },
 }
