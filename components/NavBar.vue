@@ -5,33 +5,18 @@
       <h1 class="d-none d-md-flex d-lg-flex">Jozaguts</h1>
     </router-link>
     <v-spacer></v-spacer>
-    <v-list width="auto" class="d-none d-lg-flex d-md-flex justify-center align-center">
-      <v-list-item class="accent--text font-weight-bold" exact to="about-me" ripple>
-        <v-list-content class="text-center mx-auto">
-          About me
-        </v-list-content>
+    <v-list   dense class="d-none d-lg-flex d-md-flex justify-center align-center" >
+      <v-list-item v-for="link in links":key="link.to" class=" font-weight-bold" exact :to="link.to"  ripple>
+        <v-list-item-content class="" v-text="link.value"/>
       </v-list-item>
-
-      <v-list-item class="accent--text font-weight-bold" exact to="blog" ripple>
-        <v-list-content class="text-center mx-auto">
-          blog
-        </v-list-content>
-      </v-list-item>
-
-      <v-list-item class="accent--text font-weight-bold" exact to="resume" ripple>
-        <v-list-content class="text-center mx-auto">
-          Resume
-        </v-list-content>
-      </v-list-item>
-
-      <v-list-item class="accent--text font-weight-bold" exact @click="turnOn" ripple>
-        <v-list-content>
-          <v-btn >
+      <v-list-item class="accent--text text-center font-weight-bold" exact @click="turnOn" ripple>
+        <v-list-item-content>
+          <v-btn>
             <v-icon color="primary">far fa-lightbulb</v-icon>
           </v-btn>
-        </v-list-content>
+        </v-list-item-content>
       </v-list-item>
-      
+
     </v-list>
   </v-app-bar>
 
@@ -41,6 +26,24 @@
 import {mapMutations} from 'vuex';
 
 export default {
+  data() {
+    return {
+      links: [
+        {
+          to: 'about-me',
+          value: 'About Me'
+        },
+        {
+          to: 'blog',
+          value: 'Blog'
+        },
+        {
+          to: 'Resume',
+          value: 'resume'
+        }
+      ]
+    }
+  },
   methods: {
     ...mapMutations({
       changeDrawerStatus: 'global/toggleDrawerStatus'
@@ -52,13 +55,15 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
+
 a
   text-decoration: none
+  
+.v-list-item__content
+  min-width: 100px
+  text-align: center
+  display: inline
 
-.active-tab
-  height: 2px
-  left: 0px
-  width: 207px
 
 </style>

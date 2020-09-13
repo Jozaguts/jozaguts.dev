@@ -4,20 +4,18 @@
         :mini-variant.sync="mini"
         width="56px"
         app>
-        <v-list class="mt-10 pt-10">
-          <v-list-item v-for="icon in socialMedia" :key="icon.icon">
+        <v-list class="mt-10 pt-10" >
+          <v-list-item v-for="icon in socialMedia" :key="icon.icon" :href="icon.value" target="_blank">
             <v-list-item-content class="text-center">
-              <a :href="icon.value" target="_blank">
-                <v-icon color="white">
+                <v-icon >
                   {{ icon.icon }}
                 </v-icon>
-              </a>
             </v-list-item-content>
           </v-list-item>
         </v-list>
         <v-spacer></v-spacer>
         <v-list class="mt-10 pt-10">
-          <v-list-item v-for="icon in drawerNavigation" :key="icon.icon">
+          <v-list-item v-for="icon in drawerNavigation" :key="icon.icon"  v-scroll-to="icon.value" link>
             <v-list-item-content class="text-center">
              <v-icon>
                  {{icon.icon}}
@@ -30,39 +28,7 @@
     
     <v-content>
       <nuxt/>
-      <v-menu offset-x left top>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn v-show="$vuetify.breakpoint.smAndDown"
-                 class="mx-2 menu-btn"
-                 fab
-                 dark
-                 color="#333"
-                 v-bind="attrs"
-                 v-on="on"
-                 ripple
-          >
-            <v-icon> fas fa-ellipsis-v</v-icon>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item
-            dark
-            v-for="(route, index) in routes"
-            :key="index.to"
-            @click="$router.push(route.to)"
-            class=" my-2 "
-          >
-            <v-list-item-title class="primary--text font-weight-bold text-center" ripple>{{ route.value }}</v-list-item-title>
-          </v-list-item>
-          <v-list-item dark class="my-2" @click="turnOn">
-            <v-list-item-title >
-              <v-btn  tile text ripple>
-                <v-icon color="primary" >far fa-lightbulb</v-icon>
-              </v-btn>
-            </v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+     <MobileMenu/>
     </v-content>
     <Footer/>
   </v-app>
@@ -71,9 +37,10 @@
 
 import NavBar from "~/components/NavBar";
 import Footer from "~/components/Footer";
+import MobileMenu from "~/components/MobileMenu";
 
 export default {
-  components: {NavBar, Footer},
+  components: {NavBar, Footer, MobileMenu},
   data() {
     return {
       routes: [
@@ -129,11 +96,6 @@ export default {
         }
       ]
     };
-  },
-  methods:{
-    turnOn(){
-      return this.$vuetify.theme.dark = !this.$vuetify.theme.dark
-    }
   }
 };
 </script>
