@@ -1,6 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
-  export default {
+export default {
   mode: 'universal',
   /*
   ** Headers of the page
@@ -40,7 +40,7 @@ import colors from 'vuetify/es5/util/colors'
   */
   plugins: [
     {src: '~/plugins/Vee-validate.js', ssr: false},
-    { src: '~plugins/google-analytics.js', mode: 'client' }
+    {src: '~plugins/google-analytics.js', mode: 'client'}
   ],
   /*
   ** Nuxt.js dev-modules
@@ -53,8 +53,9 @@ import colors from 'vuetify/es5/util/colors'
   */
   modules: [
     '@nuxtjs/recaptcha',
-    ['vue-scrollto/nuxt', { duration: 300 }],
+    ['vue-scrollto/nuxt', {duration: 300}],
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     ['nuxt-i18n', {
       detectBrowserLanguage: {
         useCookie: true,
@@ -89,7 +90,14 @@ import colors from 'vuetify/es5/util/colors'
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    // proxy: true,
+    // https: true,
+    // debug: true,
+  },
+  proxy: {
+    // '/api': 'http://localhost:3000'
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module

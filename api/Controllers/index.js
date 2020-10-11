@@ -1,15 +1,3 @@
-const express = require('express')
-const app = express()
-app.use(express.json())
-app.use(express.urlencoded({extend: true}))
-var cors = require('cors');
-const fetch = require('node-fetch');
-require('dotenv').config()
-app.use(cors());
-
-
-
-
 try {
   app.post('/send-message', (req, res) => {
 
@@ -340,26 +328,4 @@ a[x-apple-data-detectors] {
   })
 } catch (e) {
   console.error(e.message)
-}
-
-
-function isHuman(token, secret) {
-  return fetch('https://www.google.com/recaptcha/api/siteverify', {
-    method: 'post',
-    body: `secret=${secret}&response=${token}`,
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
-    },
-  })
-    .then(res => res.json())
-    .then((json) => {
-      return (json.success && json.score > 0.5)
-    });
-
-}
-
-module.exports = {
-  path: '/api',
-  handler: app
 }

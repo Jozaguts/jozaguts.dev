@@ -87,7 +87,7 @@ export default {
           this.$axios.post('/api/send-message', {data: this.formData, token })
         })
       } catch (error) {
-        console.log('Login error:', error)
+        console.log('recaptcha error :', error)
       }
     },
     onSuccess(token) {
