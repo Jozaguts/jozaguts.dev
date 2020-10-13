@@ -1,7 +1,7 @@
 <template>
   <v-row class="my-10 py-5" no-gutters id="ContactForm">
     <v-col cols="12" :align="[$vuetify.breakpoint.smAndDown ? 'center' : 'left']">
-      <header class="pb-5" >
+      <header class="pb-5">
         <h2 class="primary--text">Contact form</h2>
       </header>
     </v-col>
@@ -15,41 +15,43 @@
           min-height="200"
           transition="fade-transition"
         >
-        <v-form @submit.prevent="onSubmit">
-          <ValidationProvider v-slot="{errors}" name="Name" rules="required">
-            <v-text-field
-              :error-messages="errors"
-              label="Name"
-              v-model="formData.name"
-            >
-            </v-text-field>
-          </ValidationProvider>
-          <ValidationProvider v-slot="{errors}" name="Email" rules="email|required">
-            <v-text-field
-              :error-messages="errors"
-              label="Email"
-              v-model="formData.email"
-            >
-            </v-text-field>
+          <v-form @submit.prevent="onSubmit">
+            <ValidationProvider v-slot="{errors}" name="Name" rules="required">
+              <v-text-field
+                :error-messages="errors"
+                label="Name"
+                v-model="formData.name"
+              >
+              </v-text-field>
+            </ValidationProvider>
+            <ValidationProvider v-slot="{errors}" name="Email" rules="email|required">
+              <v-text-field
+                :error-messages="errors"
+                label="Email"
+                v-model="formData.email"
+              >
+              </v-text-field>
 
-          </ValidationProvider>
-          <ValidationProvider v-slot="{errors}" name="Message" rules="required">
-            <v-textarea
-              :error-messages="errors"
-              label="Message"
-              v-model="formData.message"
-            >
-            </v-textarea>
-          </ValidationProvider>
+            </ValidationProvider>
+            <ValidationProvider v-slot="{errors}" name="Message" rules="required">
+              <v-textarea
+                :error-messages="errors"
+                label="Message"
+                v-model="formData.message"
+              >
+              </v-textarea>
+            </ValidationProvider>
 
-          <div class="text-center">
-            <v-btn type="submit" class="ma-2" outlined color="primary" :disabled="!valid">Send Message</v-btn>
-          </div>
-        </v-form>
+            <div class="text-center">
+              <v-btn type="submit" class="ma-2" outlined color="primary" :loading="loading" :disabled="!valid">Send
+                Message
+              </v-btn>
+            </div>
+          </v-form>
         </v-lazy>
       </ValidationObserver>
     </v-col>
-    
+
   </v-row>
 </template>
 
@@ -68,9 +70,10 @@ export default {
       formData: {
         name: null,
         email: null,
-        message: null
+        message: null,
       },
-      isActive:false
+      loading: false,
+      isActive: false,
     }
   },
   async mounted() {
@@ -82,10 +85,10 @@ export default {
     },
     async onSubmit() {
       try {
-         await this.$recaptcha.execute('social')
-        .then((token)=>{
-          this.$axios.post('/api/send-message', {data: this.formData, token })
-        })
+        await this.$recaptcha.execute('social')
+          .then((token) => {
+            this.$axios.post('/api/send-message', {data: this.formData, token})
+          })
       } catch (error) {
         console.log('recaptcha error :', error)
       }
@@ -96,7 +99,7 @@ export default {
     onExpired() {
       console.log('Expired')
     }
-   
+
   },
 }
 </script>

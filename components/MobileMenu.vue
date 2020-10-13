@@ -18,7 +18,7 @@
         dark
         v-for="(route, index) in routes"
         :key="index.to"
-        @click="$router.push(route.to)"
+        @click="$index.push(route.to)"
         class=" my-2 "
       >
         <v-list-item-title class="primary--text font-weight-bold text-center" ripple>{{

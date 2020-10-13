@@ -1,30 +1,34 @@
-try {
-  app.post('/send-message', (req, res) => {
+export default class Mail {
+  constructor(mailerProvider, key) {
+    this.key = key;
+    this.mailerProvider = mailerProvider;
+    this.init();
+  }
 
+  init() {
+    this.mailerProvider.setApiKey(this.key);
+  }
 
-    const secret = process.env.CAPTCHA_KEY,
-      sgMail = require('@sendgrid/mail');
+  async send(name, email, message) {
+    try {
+      const messageFromContactForm = this.messageFromContactForm(name, message);
+      const replyMessageToUser = this.replyMessageToUser(name, email);
+      await (this.mailerProvider.send(messageFromContactForm))
+      await (this.mailerProvider.send(replyMessageToUser))
+    } catch (e) {
+      console.log(e)
+    }
+    
+  }
 
-
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-
-    if (isHuman(req.body.token, secret)) {
-      let USER_NAME = req.body.data.name, MESSAGE = req.body.data.message
-      USER_EMAIL = req.body.data.email
-      let msg = {
-        to: 'jozaguts@gmail.com',
-        from: 'contact@jozaguts.dev',
-        reply: 'contact@jozaguts.dev',
-        subject: 'Message from Contact Form',
-        html: `<h1>${USER_NAME} <span> says:</span></h1> <br> <p>${MESSAGE}</p>`,
-      };
-      const responseMessage = {
-        to: USER_EMAIL,
-        from: 'contact@jozaguts.dev',
-        reply: 'contact@jozaguts.dev',
-        subject: 'The message was received ',
-        text: `${USER_NAME}, Thanks your questions and opinion are very important to me and I will respond as soon as possible.`,
-        html: `
+  // change to private when # hash prefix  its support 
+  replyMessageToUser(name, email) {
+    return {
+      to: `${email}`,
+      from: 'contact@jozaguts.dev',
+      reply: 'contact@jozaguts.dev',
+      subject: 'Hello, Jozaguts.dev say Thanks',
+      html: `
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="width:100%;font-family:verdana, geneva, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
  <head> 
@@ -202,7 +206,7 @@ a[x-apple-data-detectors] {
                   <td valign="top" align="center" style="padding:0;Margin:0;width:540px"> 
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
                      <tr style="border-collapse:collapse"> 
-                      <td align="left" style="padding:0;Margin:0;padding-top:15px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:georgia, times, 'times new roman', serif;font-size:20px;font-style:normal;font-weight:normal;color:#24578E">Dear ${USER_NAME}</h3></td> 
+                      <td align="left" style="padding:0;Margin:0;padding-top:15px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:georgia, times, 'times new roman', serif;font-size:20px;font-style:normal;font-weight:normal;color:#24578E">Dear ${name}</h3></td> 
                      </tr> 
                      <tr style="border-collapse:collapse"> 
                       <td class="es-m-txt-c" align="left" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:verdana, geneva, sans-serif;line-height:21px;color:#333333">Thank you for communicating, your questions and opinion are very important to me and I will respond as soon as possible..</p></td> 
@@ -304,28 +308,17 @@ a[x-apple-data-detectors] {
 </html>
 
         `
-      };
+    };
+  }
 
-      sgMail.send(msg)
-        .then((response) => {
-          console.log('send first')
-        })
-        .then(response => {
-          console.log('send second')
-          sgMail.send(responseMessage)
-            .then((response) => {
-              console.log('message was send successfully')
-            })
-        })
-        .catch(error => console.log(error))
-      res.json('message was send successfully')
+  messageFromContactForm(name, message) {
+    return {
+      to: 'jozaguts@gmail.com',
+      from: 'contact@jozaguts.dev',
+      reply: 'contact@jozaguts.dev',
+      subject: 'Message from Contact Form',
+      html: `<h1>${name} <span> says:</span></h1> <br> <p>${message}</p>`,
+    };
+  }
 
-    } else {
-      return;
-    }
-
-
-  })
-} catch (e) {
-  console.error(e.message)
 }
