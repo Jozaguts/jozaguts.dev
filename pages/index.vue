@@ -1,9 +1,9 @@
 <template>
   <v-container>
-    <IndexBanner/>
-    <projects-container/>
+    <IndexBanner id="top" />
+    <projects-container id="middle"/>
     <v-divider/>
-    <ContactForm/>
+    <ContactForm id="bottom"/>
   </v-container>
 </template>
 
@@ -16,7 +16,28 @@ export default {
   components: {
     ProjectsContainer, IndexBanner, ContactForm
   },
+  data() {
+    return {
+      title: "Home",
+      loading: true,
+      insideNavigationPage:[
+        {
+          icon: 'fas fa-chevron-up',
+          value: '#top'
+        },
+        {
+          icon: 'fas fa-grip-lines',
+          value: '#middle'
+        },
+        {
+          icon: 'fas fa-chevron-down',
+          value: '#bottom'
+        }
+      ]
+    };
+  },
   mounted() {
+    this.$store.commit('global/SET_INSIDE_NAVIGATION_INDEX_PAGE',this.insideNavigationPage)
     this.setTitle;
     this.$nextTick(() => {
       this.loading = false;
@@ -44,12 +65,7 @@ export default {
       ]
     };
   },
-  data() {
-    return {
-      title: "Home",
-      loading: true
-    };
-  },
+  
   computed: {
     setTitle() {
       this.$route.fullPath === "/es"

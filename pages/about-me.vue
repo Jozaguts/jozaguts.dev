@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row align-content-md="center" justify-md="center">
+    <v-row id="top" align-content-md="center" justify-md="center">
       <v-col justify="left" align="left" cols="10" md="6">
         <v-card class="d-inline-block mx-auto" width="340" ripple flat>
           <v-row>
@@ -39,7 +39,7 @@
         </v-btn>
       </v-col>
     </v-row>
-    <v-row align-content-md="center" justify-md="center">
+    <v-row id="middle" align-content-md="center" justify-md="center">
       <v-col justify="left" class="d-flex flex-column" align="left" cols="12" md="6">
         <div class="content-container">
           <header class="d-flex">
@@ -75,7 +75,7 @@
 
       </v-col>
     </v-row>
-    <v-row align-content-md="center" justify-md="center">
+    <v-row id="bottom" align-content-md="center" justify-md="center">
       <v-col justify="left" class="d-flex flex-column" align="left" cols="12" md="5">
         <div class="content-container">
           <header class="d-flex">
@@ -206,7 +206,24 @@ export default {
           task: 'Here were my beginnings when I was still studying at the university I joined the company as an intern, I learned the world of back-end and front-end, with layout tasks, scripting, I began to learn laravel and a few months later I began with vuejs\n'
         }
       ],
+      insideNavigationPage: [
+        {
+          icon: 'fas fa-chevron-up',
+          value: '#top'
+        },
+        {
+          icon: 'fas fa-grip-lines',
+          value: '#middle'
+        },
+        {
+          icon: 'fas fa-chevron-down',
+          value: '#bottom'
+        }
+      ]
     }
+  },
+  mounted() {
+    this.$store.commit('global/SET_INSIDE_NAVIGATION_INDEX_PAGE',this.insideNavigationPage)
   },
   computed: {
     isMobile() {
