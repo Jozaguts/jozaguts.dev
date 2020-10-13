@@ -1,6 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
-
+require('dotenv').config()
 export default {
+  env: {
+    appVersion: process.env.APP_VERSION || 'v-0.0.1'
+  },
   mode: 'universal',
   /*
   ** Headers of the page
@@ -46,7 +49,9 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv',
+
   ],
   /*
   ** Nuxt.js modules

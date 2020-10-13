@@ -1,34 +1,27 @@
 <template>
   <v-app>
-      <v-navigation-drawer
-        :mini-variant.sync="mini"
-        width="56px"
-        app>
-        <v-list class="mt-10 pt-10" >
-          <v-list-item v-for="icon in socialMedia" :key="icon.icon" :href="icon.value" target="_blank">
-            <v-list-item-content class="text-center">
-                <v-icon >
-                  {{ icon.icon }}
-                </v-icon>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-        <v-spacer></v-spacer>
-        <v-list class="mt-10 pt-10">
-          <v-list-item v-for="icon in drawerNavigation" :key="icon.icon"  v-scroll-to="icon.value" link>
-            <v-list-item-content class="text-center">
-             <v-icon>
-                 {{icon.icon}}
-             </v-icon>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
-      <nav-bar/>
-    
+    <v-navigation-drawer
+      :mini-variant.sync="mini"
+      width="56px"
+      app>
+
+      <v-list class="mt-10 pt-10">
+        <v-list-item v-for="icon in socialMedia" :key="icon.icon" :href="icon.value" target="_blank">
+          <v-list-item-content class="text-center">
+            <v-icon>
+              {{ icon.icon }}
+            </v-icon>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <v-spacer></v-spacer>
+      <InsideNavigation :navigation-references="drawerNavigation" />
+      
+    </v-navigation-drawer>
+    <nav-bar/>
     <v-content>
       <nuxt/>
-     <MobileMenu/>
+      <MobileMenu/>
     </v-content>
     <Footer/>
   </v-app>
@@ -38,9 +31,11 @@
 import NavBar from "~/components/NavBar";
 import Footer from "~/components/Footer";
 import MobileMenu from "~/components/MobileMenu";
+import InsideNavigation from '@/Components/Commons/InsideNavigation';
+
 
 export default {
-  components: {NavBar, Footer, MobileMenu},
+  components: {NavBar, Footer, MobileMenu,InsideNavigation},
   data() {
     return {
       routes: [
@@ -81,21 +76,12 @@ export default {
           value: "https://www.instagram.com/jozagutsdev",
         },
       ],
-      drawerNavigation: [
-        {
-          icon: 'fas fa-chevron-up',
-          value: '#banner'
-        },
-        {
-          icon: 'fas fa-grip-lines',
-          value: '#projects'
-        },
-        {
-          icon: 'fas fa-chevron-down',
-          value: '#ContactForm'
-        }
-      ]
     };
+  },
+  computed:{
+    drawerNavigation(){
+      return this.$store.getters['global/getInsideNavigationIndexPage']
+    }
   }
 };
 </script>

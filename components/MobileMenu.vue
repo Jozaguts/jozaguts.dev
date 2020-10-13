@@ -1,8 +1,8 @@
 <template>
-  <v-menu offset-x left top>
+  <v-menu offset-x left top >
     <template v-slot:activator="{ on, attrs }">
       <v-btn v-show="$vuetify.breakpoint.smAndDown"
-             class="mx-2 menu-btn"
+             class="mx-0 menu-btn"
              fab
              dark
              color="#333"
@@ -18,7 +18,7 @@
         dark
         v-for="(route, index) in routes"
         :key="index.to"
-        @click="$router.push(route.to)"
+        :to="route.to"
         class=" my-2 "
       >
         <v-list-item-title class="primary--text font-weight-bold text-center" ripple>{{
@@ -65,7 +65,8 @@ export default {
   }
 }
 </script>
-
-<style scoped>
+<style lang="sass" scoped>
+.menu-btn
+  z-index: 99999
 
 </style>
