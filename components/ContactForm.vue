@@ -43,7 +43,9 @@
             </ValidationProvider>
 
             <div class="text-center">
-              <v-btn type="submit" class="ma-2" outlined color="primary" :loading="loading" :disabled="!valid">Send
+              <v-btn type="submit" class="ma-2 btn-send-message" outlined x-large color="primary" :loading="loading"
+                     :disabled="!valid">
+                Send
                 Message
               </v-btn>
             </div>
@@ -84,6 +86,7 @@ export default {
       console.log('Error happened:', error)
     },
     async onSubmit() {
+      this.loading = true;
       try {
         await this.$recaptcha.execute('social')
           .then((token) => {
@@ -91,6 +94,8 @@ export default {
           })
       } catch (error) {
         console.log('recaptcha error :', error)
+      } finally {
+        this.loading = false
       }
     },
     onSuccess(token) {
@@ -104,4 +109,4 @@ export default {
 }
 </script>
 
-<style scoped></style>
+
