@@ -1,5 +1,5 @@
 require('dotenv').config()
-const secret = process.env.CAPTCHA_KEY
+const secret = process.env.CAPTCHA_KEY_SECRET
 const fetch = require('node-fetch');
 
 function recaptchaValidator(req, res, next) {

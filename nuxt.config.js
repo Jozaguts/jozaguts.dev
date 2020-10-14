@@ -1,8 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
 require('dotenv').config()
+const siteKey = process.env.SITE_KEY
 export default {
   env: {
-    appVersion: process.env.APP_VERSION || 'v-0.0.1'
+    appVersion: process.env.APP_VERSION || 'v-0.0.1',
   },
   mode: 'universal',
   /*
@@ -86,8 +87,7 @@ export default {
     /* reCAPTCHA options */
     hideBadge: true, // Hide badge element (v3 & v2 via size=invisible)
     language: 'en',   // Recaptcha language (v2)
-    // siteKey: '6LdAHMkZAAAAAMN6j84gNpzOSUT9Ua52TRSeG6MA', //v2 
-    siteKey: '6LelF8kZAAAAAKNACgYCudrBa08u_fzTmLULF3Dv', //v3 Site key for requests
+    siteKey: siteKey, //v3 Site key for requests
     version: 3,     // Version
     size: 'compact'        // Size: 'compact', 'normal', 'invisible' (v2)
   },

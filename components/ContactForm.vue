@@ -80,31 +80,24 @@ export default {
   },
   async mounted() {
     await this.$recaptcha.init()
+   
+
   },
   methods: {
-    onError(error) {
-      console.log('Error happened:', error)
-    },
     async onSubmit() {
-      this.loading = true;
       try {
+        this.loading = true;
         await this.$recaptcha.execute('social')
           .then((token) => {
             this.$axios.post('/api/send-message', {data: this.formData, token})
           })
+
       } catch (error) {
         console.log('recaptcha error :', error)
       } finally {
         this.loading = false
       }
     },
-    onSuccess(token) {
-      console.log('Succeeded:', token)
-    },
-    onExpired() {
-      console.log('Expired')
-    }
-
   },
 }
 </script>
