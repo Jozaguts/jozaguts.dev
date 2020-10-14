@@ -7,7 +7,7 @@
     <v-spacer></v-spacer>
     <v-list   dense class="d-none d-lg-flex d-md-flex justify-center align-center" >
       <v-list-item v-for="link in links":key="link.to" class=" font-weight-bold" exact :to="link.to"  ripple>
-        <v-list-item-content class="" v-text="link.value"/>
+        <v-list-item-content class="text-capitalize" v-text="link.value"/>
       </v-list-item>
       <v-list-item class="accent--text text-center font-weight-bold" exact @click="turnOn" ripple>
         <v-list-item-content>

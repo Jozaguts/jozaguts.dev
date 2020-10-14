@@ -109,7 +109,10 @@ export default {
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    defaultAssets: {icons: 'fa'},
+    defaultAssets: {
+      icons: 'fa',
+      font: false
+    },
     theme: {
       options: {
         customProperties: true,

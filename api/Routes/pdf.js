@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.use('/send-message', require('./mail'));
-router.use('/pdf', require('./pdf'));
+
+router.get('/', (req, res) => {
+  
+})
+
 
 module.exports = router;
