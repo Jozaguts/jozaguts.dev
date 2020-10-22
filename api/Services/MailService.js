@@ -4,7 +4,7 @@ const ejs = require("ejs");
 const path = require("path");
 app.set('view engine', 'ejs');
 
-export default class Mail {
+export default class MailService {
   constructor(mailerProvider, key) {
     this.key = key;
     this.mailerProvider = mailerProvider;

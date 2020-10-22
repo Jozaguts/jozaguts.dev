@@ -1,4 +1,4 @@
-import MailService from '../Services/Mail'
+import MailService from '../Services/MailService'
 import sgMail from '@sendgrid/mail'
 
 function MailController(req, res) {
