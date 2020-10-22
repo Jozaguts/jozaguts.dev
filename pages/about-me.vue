@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container ref="aboutPage" id="aboutPage">
     <v-row id="top" align-content-md="center" justify-md="center">
       <v-col justify="left" align="left" cols="10" md="6">
         <v-card class="d-inline-block mx-auto" width="340" ripple flat>
@@ -184,10 +184,13 @@
         </div>
       </v-col>
     </v-row>
+    <div id="pdf"></div>
+    <v-btn @click="download"> click</v-btn>
   </v-container>
 </template>
 
 <script>
+
 export default {
   name: "about-me",
   head: {
@@ -223,7 +226,7 @@ export default {
     }
   },
   mounted() {
-    this.$store.commit('global/SET_INSIDE_NAVIGATION_INDEX_PAGE',this.insideNavigationPage)
+    this.$store.commit('global/SET_INSIDE_NAVIGATION_PAGE', this.insideNavigationPage)
   },
   computed: {
     isMobile() {
@@ -272,6 +275,12 @@ export default {
             "Git",]
         },
       ]
+    }
+  },
+  methods: {
+
+    download() {
+
     }
   }
 

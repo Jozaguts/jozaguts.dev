@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+
 require('dotenv').config()
 const siteKey = process.env.SITE_KEY
 export default {
@@ -153,7 +154,10 @@ export default {
   ** Build configuration
   */
   build: {
-    transpile: ["vee-validate/dist/rules"],
+    transpile: [
+      "vee-validate/dist/rules",
+      "gsap"
+    ],
     /*
     ** You can extend webpack config here
     */
