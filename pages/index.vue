@@ -37,7 +37,7 @@ export default {
     };
   },
   mounted() {
-    this.$store.commit('global/SET_INSIDE_NAVIGATION_INDEX_PAGE',this.insideNavigationPage)
+    this.$store.commit('global/SET_INSIDE_NAVIGATION_PAGE',this.insideNavigationPage)
     this.setTitle;
     this.$nextTick(() => {
       this.loading = false;

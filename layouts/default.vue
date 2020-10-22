@@ -80,7 +80,7 @@ export default {
   },
   computed:{
     drawerNavigation(){
-      return this.$store.getters['global/getInsideNavigationIndexPage']
+      return this.$store.getters['global/getInsideNavigationPage']
     }
   }
 };

@@ -1,4 +1,4 @@
 export default () => ({
   drawer: true,
-  insideNavigationIndexPage: []
+  insideNavigationPage: []
 })
