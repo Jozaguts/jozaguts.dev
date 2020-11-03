@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col cols="12" md="8" lg="8">
         <client-only>
-          <pdf :src="resume"> </pdf>
+          <vue-pdf :src="resume"> </vue-pdf>
         </client-only>
       </v-col>
       <v-col cols="12" md="8" lg="8">
@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import pdf from "vue-pdf";
 export default {
   head() {
     return {
@@ -80,9 +79,9 @@ export default {
       }
     }
   },
-  components: {
-    pdf
-  },
+  // components: {
+  //   pdf
+  // },
   computed: {
     resume() {
       return this.$i18n.locale === "en" ? "/resumeEn.pdf" : "resumeEs.pdf";
