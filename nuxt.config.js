@@ -45,7 +45,8 @@ export default {
   */
   plugins: [
     {src: '~/plugins/Vee-validate.js', ssr: false},
-    {src: '~plugins/google-analytics.js', mode: 'client'}
+    {src: '~plugins/google-analytics.js', mode: 'client'},
+    { src: '~/plugins/vue-pdf.js', mode: 'client' },
   ],
   /*
   ** Nuxt.js dev-modules
