@@ -30,7 +30,9 @@
 </template>
 
 <script>
-import {TimelineLite} from 'gsap'
+import { gsap } from 'gsap';
+import { CSSPlugin } from 'gsap/CSSPlugin'
+gsap.registerPlugin(CSSPlugin);
 
 export default {
   name: "Main",
@@ -44,7 +46,7 @@ export default {
   mounted() {
     this.loading = false;
     const { box,banner, img,name } = this.$refs
-    const timeline = new TimelineLite()
+    const timeline = new gsap.timeline()
   
     timeline.from(banner,  {
       opacity:0,
