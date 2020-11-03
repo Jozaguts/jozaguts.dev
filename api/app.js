@@ -5,7 +5,7 @@ app.use(express.json())
 app.use(express.urlencoded({extend: true}))
 app.use(cors());
 
-app.use( require('./routes'));
+app.use( require('routes'));
 
 module.exports = {
   path: '/api',
