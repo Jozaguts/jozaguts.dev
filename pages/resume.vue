@@ -2,10 +2,14 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12" md="8" lg="8">
-        <pdf :src="resume"> </pdf>
+        <client-only>
+          <pdf :src="resume"> </pdf>
+        </client-only>
       </v-col>
       <v-col cols="12" md="8" lg="8">
-        <v-btn color="primary" @click="onSubmit" :loading="loading">Download</v-btn>
+        <v-btn color="primary" @click="onSubmit" :loading="loading"
+          >Download</v-btn
+        >
       </v-col>
     </v-row>
   </v-container>
@@ -47,27 +51,32 @@ export default {
     await this.$recaptcha.init();
   },
   methods: {
-    async onSubmit(){
+    async onSubmit() {
       try {
         // this.loading = true
-        await this.$recaptcha.execute('social')
-        .then(token =>{
-          return  this.$axios.post('api/resume',{lang:this.lang, token},{
-            responseType: 'blob'
+        await this.$recaptcha
+          .execute("social")
+          .then(token => {
+            return this.$axios.post(
+              "api/resume",
+              { lang: this.lang, token },
+              {
+                responseType: "blob"
+              }
+            );
           })
-        })
-        .then(resume =>{
-          var fileURL = window.URL.createObjectURL(new Blob([resume.data]));
-          var fileLink = document.createElement('a');
+          .then(resume => {
+            var fileURL = window.URL.createObjectURL(new Blob([resume.data]));
+            var fileLink = document.createElement("a");
 
-          fileLink.href = fileURL;
-          fileLink.setAttribute('download', 'file.pdf');
-          document.body.appendChild(fileLink);
+            fileLink.href = fileURL;
+            fileLink.setAttribute("download", "file.pdf");
+            document.body.appendChild(fileLink);
 
-          fileLink.click();
-        })
-      }catch (e) {
-        console.error(e)
+            fileLink.click();
+          });
+      } catch (e) {
+        console.error(e);
       }
     }
   },
