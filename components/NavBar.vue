@@ -1,7 +1,7 @@
 <template>
   <v-app-bar dense elevate-on-scroll height="80" app>
     <router-link class="d-flex align-center" to="/">
-      <img src="~/assets/img/logo.svg" alt="logo" width="50" class="mr-2">
+      <img src="~/assets/img/logoJz.svg" alt="logo" width="50" class="mr-2">
       <h1 class="d-none d-md-flex d-lg-flex">Jozaguts</h1>
     </router-link>
     <v-spacer></v-spacer>
@@ -16,11 +16,8 @@
           </v-btn>
         </v-list-item-content>
       </v-list-item>
-
     </v-list>
-   
   </v-app-bar>
-
 </template>
 
 <script>
@@ -38,7 +35,7 @@ export default {
           value: 'Blog'
         },
         {
-          to: 'Resume',
+          to: 'resume',
           value: 'resume'
         }
       ]

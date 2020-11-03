@@ -17,9 +17,9 @@ export default class MailService {
 
   async send(name, email, message) {
     try {
-      const messageFromContactForm = this.messageFromContactForm(name, message);
+      const messageFromFormContact = this.messageFromFormContact(name, message);
       const replyMessageToUser = await this.replyMessageToUser(name, email);
-      await (this.mailerProvider.send(messageFromContactForm))
+      await (this.mailerProvider.send(messageFromFormContact))
       await (this.mailerProvider.send(replyMessageToUser))
     } catch (e) {
       console.log(e)
@@ -58,7 +58,7 @@ export default class MailService {
 
   }
 
-  messageFromContactForm(name, message) {
+  messageFromFormContact(name, message) {
     return {
       to: 'jozaguts@gmail.com',
       from: 'contact@jozaguts.dev',

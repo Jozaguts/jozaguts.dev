@@ -26,6 +26,7 @@
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^6.10.1",
     "vee-validate": "^3.3.9",
+    "vue-pdf": "^4.2.0",
     "vue-scrollto": "^2.18.2"
   },
   "devDependencies": {
