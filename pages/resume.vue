@@ -84,7 +84,7 @@ export default {
   // },
   computed: {
     resume() {
-      return this.$i18n.locale === "en" ? "/resumeEn.pdf" : "resumeEs.pdf";
+      return this.$i18n.locale === "en" ? "/resumeEn.pdf" : "/resumeEs.pdf";
     }
   }
 };
