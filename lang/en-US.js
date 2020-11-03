@@ -30,7 +30,11 @@ export default {
     index:{
       description: 'Personal website projects ideas experience and development issues ',
       keywords: 'web developer,web projects, projects, vuejs , laravel , blog , vuetify, freelance, AWS, EC2, R53, S3, '
-    } 
+    },
+    resume:{
+      description: 'PDF resume by Sagit Gutierrez as a web developer',
+      keywords: 'PDF, Jozaguts, Resume, Sagit Gutiérrez CV, CV Jozaguts, work experience'
+    }
   },
   rickPhrase: 'Nobody exists on purpose. Nobody belongs anywhere. Everybody\'s gonna die. <strong class="primary--text">let\'s  go to develop!</strong>'
 }

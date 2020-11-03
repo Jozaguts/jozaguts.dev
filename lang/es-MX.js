@@ -24,6 +24,10 @@ export default {
     index:{
       description: 'Personal website projects ideas experience and development issues ',
       keywords: 'web developer,desarrollador web,proyectos,projects,vuejs,laravel,blog,vuetify,pagina web,sitio web, freelance, AWS, EC2, R53, S3, '
+    },
+    resume:{
+      description: 'Resume, en formato PDF de Sagit Gutierrez como desarrollador web',
+      keywords: 'PDF, Jozaguts, Resume, Sagit Gutiérrez CV, CV Jozaguts, experiencia laborarl'
     }
   },
   rickPhrase: 'Nadie existe a propósito. Nadie pertenece a ninguna parte. Todos vamos a morir. <strong class="primary--text">¡Vamos a desarrollar!</strong>'
