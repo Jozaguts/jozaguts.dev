@@ -7,7 +7,7 @@
             <v-col align="center" cols="4" md="5" lg="5">
               <v-img
                 elevation="0"
-                height="100"
+                height="150"
                 width="100"
                 :src="img"
               ></v-img>
@@ -184,8 +184,6 @@
         </div>
       </v-col>
     </v-row>
-    <div id="pdf"></div>
-    <v-btn @click="download"> click</v-btn>
   </v-container>
 </template>
 
@@ -277,13 +275,6 @@ export default {
       ]
     }
   },
-  methods: {
-
-    download() {
-
-    }
-  }
-
 }
 </script>
 
