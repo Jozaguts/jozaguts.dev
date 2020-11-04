@@ -4,9 +4,9 @@
       <v-card>
         <v-row class=" d-flex">
           <v-col cols="12" md="6" lg="6" class="main-banner-content align-self-center text-center" ref="box">
-            <h1 class="ma-4 primary--text" ref="name">Hi!, I'm Sagit</h1>
-            <h2 class="ma-4 ">I'm a Web developer</h2>
-            <p class="mx-4">Here you'll get my Ideas, projects and experience</p>
+            <h1 class="ma-4 primary--text" ref="name" v-text="$t('indexBanner.h1')"/>
+<!--            <h2 class="ma-4 " v-text="$t('indexBanner.h2')"/>-->
+<!--            <p class="mx-4" v-text="$t('indexBanner.p')"/>-->
           </v-col>
 
           <v-col cols="12" md="6" lg="6"  class="img-container" ref="img">
