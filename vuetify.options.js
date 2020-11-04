@@ -1,5 +1,11 @@
 import colors from 'vuetify/es5/util/colors'
 import logo from '~/components/icons/logo.vue'
+import express from '~/components/icons/express.vue'
+import nuxtjs from '~/components/icons/nuxtjs.vue'
+import greensock from '~/components/icons/greensock.vue'
+import sendgrid from '~/components/icons/sendgrid.vue'
+import vue from '~/components/icons/vue.vue'
+import vuetify from '~/components/icons/vuetify.vue'
 export default {
   theme: {
     options: {
@@ -32,7 +38,25 @@ export default {
     values: {
       logo: {
         component: logo 
-      }
+      },
+      express: {
+        component: express
+      },
+      nuxtjs: {
+        component: nuxtjs
+      },
+      greensock: {
+        component: greensock
+      },
+      sendgrid: {
+        component: sendgrid
+      },
+      vuetify: {
+        component: vuetify
+      },
+      vue: {
+        component: vue
+      },
     }
   }
 }
