@@ -27,7 +27,7 @@
           class=" my-2 "
         >
           <v-list-item-title
-            class="primary--text font-weight-bold text-center"
+            class="primary--text font-weight-bold text-center text-h5"
             ripple
             >{{ route.value }}
           </v-list-item-title>
@@ -48,6 +48,7 @@
           <v-btn
             block
             class="primary--text font-weight-bold text-center"
+            x-large
             ripple
             @click="mobileMenu = !mobileMenu"
             >Close</v-btn
@@ -82,4 +83,8 @@ export default {
 <style lang="sass" scoped>
 .menu-btn
   z-index: 99999
+  
+.v-list-item__title
+  font-size: 1.5rem
+    
 </style>
