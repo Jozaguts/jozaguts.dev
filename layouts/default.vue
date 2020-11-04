@@ -72,6 +72,10 @@ export default {
         {
           icon: "fab fa-instagram",
           value: "https://www.instagram.com/jozagutsdev"
+        },
+        {
+          icon: "fab fa-github",
+          value: "https://www.github.com/jozaguts"
         }
       ]
     };
