@@ -38,43 +38,9 @@
 <script>
 import { mapMutations } from "vuex";
 export default {
-  data() {
-    return {
-      linksData: {
-        en: [
-          {
-            to: "about-me",
-            value: "About Me"
-          },
-          {
-            to: "blog",
-            value: "Blog"
-          },
-          {
-            to: "resume",
-            value: "resume"
-          }
-        ],
-        es: [
-          {
-            to: "/es/about-me",
-            value: "Acerca de"
-          },
-          {
-            to: "/es/blog",
-            value: "Blog"
-          },
-          {
-            to: "/es/resume",
-            value: "resume"
-          }
-        ]
-      }
-    };
-  },
   computed: {
     links() {
-      return this.$i18n.locale === "en" ? this.linksData.en : this.linksData.es;
+      return this.$i18n.locale === "en" ? this.$store.getters['global/getLinksData'].en : this.$store.getters['global/getLinksData'].es;
     },
     homeRoute() {
       return this.$i18n.locale === "en" ? "/" : "/es";

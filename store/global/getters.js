@@ -1,8 +1,11 @@
 export default {
   drawer(state) {
-    return state.drawer
+    return state.drawer;
   },
-  getInsideNavigationPage(state){
-    return state.insideNavigationPage
+  getInsideNavigationPage(state) {
+    return state.insideNavigationPage;
+  },
+  getLinksData(state) {
+    return state.linksData;
   }
-}
+};
