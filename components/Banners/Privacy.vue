@@ -3,23 +3,22 @@
     <v-banner
       two-lines
       shaped
-      width="50%"
+      :width="this.$vuetify.breakpoint.smAndDown ? '100%' : '50%'"
       class="privacy-banner"
       icon="fas fa-user-shield"
       :value="banner"
     >
-      <span class="primary black--text font-weight-bold">Jozaguts </span
-      >{{ $t("privacy.bannerContent") }}
+      <span class="primary black--text font-weight-bold" v-text="'Jozaugts'">
+      </span>
+      <span v-text="$t('privacy.bannerContent')"> </span>
       <template v-slot:actions>
         <v-btn text color="secondary" @click="showPrivacy">more</v-btn>
-        <v-btn
-          color="primary"
-          @click="privacyAccept"
-          v-text="$t('privacy.primaryBtn')"
-        />
+        <v-btn color="primary" @click="privacyAccept">{{
+          $t("privacy.primaryBtn")
+        }}</v-btn>
       </template>
     </v-banner>
-    <v-dialog v-model="dialog" :max-width="width">
+    <v-dialog v-model="dialog" @click:outside="showPrivacy" :max-width="width">
       <v-card>
         <v-card-title class="headline" v-text="$t('privacy.title')" />
         <v-card-text>
@@ -38,11 +37,11 @@
         <v-card-actions>
           <v-spacer></v-spacer>
 
-          <v-btn color="green darken-1" text @click="showPrivacy">
+          <v-btn color="secondary darken-1" text @click="showPrivacy">
             Disagree
           </v-btn>
 
-          <v-btn color="green darken-1" text @click="privacyAccept">
+          <v-btn color="primary darken-1"  @click="privacyAccept">
             Agree
           </v-btn>
         </v-card-actions>
