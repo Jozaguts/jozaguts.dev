@@ -1,12 +1,13 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      :mini-variant.sync="mini"
-      width="56px"
-      app>
-
+    <v-navigation-drawer :mini-variant.sync="mini" width="56px" app>
       <v-list class="mt-10 pt-10">
-        <v-list-item v-for="icon in socialMedia" :key="icon.icon" :href="icon.value" target="_blank">
+        <v-list-item
+          v-for="icon in socialMedia"
+          :key="icon.icon"
+          :href="icon.value"
+          target="_blank"
+        >
           <v-list-item-content class="text-center">
             <v-icon>
               {{ icon.icon }}
@@ -16,40 +17,37 @@
       </v-list>
       <v-spacer></v-spacer>
       <InsideNavigation :navigation-references="drawerNavigation" />
-      
     </v-navigation-drawer>
-    <nav-bar/>
+    <nav-bar />
     <v-content>
-      <nuxt/>
-      <MobileMenu/>
+      <nuxt />
+      <MobileMenu />
     </v-content>
-    <Footer/>
+    <Footer />
   </v-app>
 </template>
 <script>
-
 import NavBar from "~/components/NavBar";
 import Footer from "~/components/Footer";
 import MobileMenu from "~/components/MobileMenu";
-import InsideNavigation from '@/components/Commons/InsideNavigation';
-
+import InsideNavigation from "@/components/Commons/InsideNavigation";
 
 export default {
-  components: {NavBar, Footer, MobileMenu,InsideNavigation},
+  components: { NavBar, Footer, MobileMenu, InsideNavigation },
   data() {
     return {
       routes: [
         {
-          to: '/',
-          value: 'HOME'
+          to: "/",
+          value: "Home"
         },
         {
-          to: '/about-me',
-          value: 'ABOUT'
+          to: "/about-me",
+          value: "About me "
         },
         {
-          to: '/blog',
-          value: 'BLOG'
+          to: "/blog",
+          value: "Blog"
         }
       ],
       drawer: true,
@@ -57,30 +55,34 @@ export default {
       socialMedia: [
         {
           icon: "fab fa-linkedin-in",
-          value: "https://www.linkedin.com/in/jozaguts/",
+          value: "https://www.linkedin.com/in/jozaguts/"
         },
         {
           icon: "fab fa-behance",
-          value: "https://www.behance.net/jozaguts88a8",
+          value: "https://www.behance.net/jozaguts88a8"
         },
         {
           icon: "fab fa-twitter",
-          value: "https://twitter.com/Jozaguts",
+          value: "https://twitter.com/Jozaguts"
         },
         {
           icon: "fab fa-facebook",
-          value: "https://www.facebook.com/Jozaguts.dev",
+          value: "https://www.facebook.com/Jozaguts.dev"
         },
         {
           icon: "fab fa-instagram",
-          value: "https://www.instagram.com/jozagutsdev",
+          value: "https://www.instagram.com/jozagutsdev"
         },
-      ],
+        {
+          icon: "fab fa-github",
+          value: "https://www.github.com/jozaguts"
+        }
+      ]
     };
   },
-  computed:{
-    drawerNavigation(){
-      return this.$store.getters['global/getInsideNavigationPage']
+  computed: {
+    drawerNavigation() {
+      return this.$store.getters["global/getInsideNavigationPage"];
     }
   }
 };

@@ -1,9 +1,11 @@
 <template>
   <v-container>
+    <privacy />
     <IndexBanner id="top" />
     <projects-container id="middle"/>
     <v-divider/>
     <ContactForm id="bottom"/>
+   
   </v-container>
 </template>
 
@@ -11,10 +13,11 @@
 import ProjectsContainer from "@/components/Projects/ProjectsContainer";
 import IndexBanner from "@/components/Banners/IndexBanner";
 import ContactForm from "@/components/ContactForm";
+import Privacy from "@/components/Banners/Privacy";
 
 export default {
   components: {
-    ProjectsContainer, IndexBanner, ContactForm
+    ProjectsContainer, IndexBanner, ContactForm,Privacy
   },
   data() {
     return {
