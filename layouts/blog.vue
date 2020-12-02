@@ -7,28 +7,12 @@
     </v-navigation-drawer>
 
     <v-content>
-      <!-- Provides the application the proper gutter -->
-      <v-container>
-        <v-parallax
-          :src="bannerImage"
-        >
-          <v-row
-            align="center"
-            justify="center"
-          >
-            <v-col class="text-center" cols="12">
-              <h1 class="display-1 d-inline primary black--text font-weight-bold mb-4">Jozaguts/blog</h1>
-              <h4 class="subheading accent--text font-weight-bold ">let's to talk!</h4>
-            </v-col>
-          </v-row>
-        </v-parallax>
+
         <nuxt />
-      </v-container>
+    
     </v-content>
 
-    <v-footer app>
-      <!-- -->
-    </v-footer>
+    <footer-component app/>
   </v-app>
 </template>
 
@@ -36,12 +20,14 @@
 import NavBar from "~/components/NavBar";
 import { mapGetters } from "vuex";
 export default {
-  components: {  NavBar },
+  components: {  
+    NavBar,
+    FooterComponent:()=> import('~/components/Footer.vue'),
+  },
   data() {
     return {
       mini: true,
       showDrawer: false,
-      bannerImage: require("~/assets/img/banner.svg"),
       path: require("~/assets/img/perfil.png"),
       userName: "Sagit Gutiérrez",
       infoSocialMedia: [

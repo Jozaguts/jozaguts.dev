@@ -157,7 +157,6 @@ export default {
     terser: {
       extractComments: false // default was LICENSES
     },
-
     /*
      ** You can extend webpack config here
      */

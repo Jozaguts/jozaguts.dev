@@ -1,7 +1,9 @@
 <template>
- <section>
-   
- </section>
+  <v-container>
+    <blog-banner />
+    <toolbar-component />
+    <card-container />
+  </v-container>
 </template>
 
 <script>
@@ -14,14 +16,10 @@ export default {
       { hid: 'description', name: 'description', content: 'Home page description' }
     ],
   },
-  data() {
-    return{
-      bannerImage: require('~/assets/img/headline-blog.png')
-    }
+  components:{
+    BlogBanner:() => import('~/components/Banners/BlogBanner'),
+    CardContainer:() => import('~/components/Blog/CardContainer'),
+    ToolbarComponent:() => import('~/components/Blog/Toolbar'),
   }
 }
 </script>
-
-<style scoped>
-
-</style>

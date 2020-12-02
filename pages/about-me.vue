@@ -203,7 +203,7 @@ export default {
       workHistory: [
         {
           companyName: 'Axovia Marketing',
-          dateY: '2016',
+          dateY: '2018',
           task: 'Here were my beginnings when I was still studying at the university I joined the company as an intern, I learned the world of back-end and front-end, with layout tasks, scripting, I began to learn laravel and a few months later I began with vuejs\n'
         }
       ],

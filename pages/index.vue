@@ -1,50 +1,77 @@
 <template>
   <v-container>
-    <privacy />
-    <IndexBanner id="top" />
-    <projects-container id="middle"/>
-    <v-divider/>
-    <ContactForm id="bottom"/>
-   
+    <v-row id="top" v-if="isloaded" ref="bannerContainer">
+      <v-col>
+        <index-banner />
+      </v-col>
+    </v-row>
+    <v-divider />
+    <projects-container id="middle" />
+    <v-divider />
+    <contact-form id="bottom" />
+    <privacy-component />
   </v-container>
 </template>
 
 <script>
-import ProjectsContainer from "@/components/Projects/ProjectsContainer";
-import IndexBanner from "@/components/Banners/IndexBanner";
-import ContactForm from "@/components/ContactForm";
-import Privacy from "@/components/Banners/Privacy";
+import { gsap } from "gsap";
+import { CSSPlugin } from "gsap/CSSPlugin";
+gsap.registerPlugin(CSSPlugin);
 
 export default {
   components: {
-    ProjectsContainer, IndexBanner, ContactForm,Privacy
+    ProjectsContainer: () => import("@/components/Projects/ProjectsContainer"),
+    IndexBanner: () => import("@/components/Banners/IndexBanner"),
+    ContactForm: () => import("@/components/ContactForm"),
+    PrivacyComponent: () => import("@/components/Banners/Privacy"),
+    StatsComponent: () => import("@/components/Stats")
   },
   data() {
     return {
       title: "Home",
-      loading: true,
-      insideNavigationPage:[
+      isloaded: false,
+      insideNavigationPage: [
         {
-          icon: 'fas fa-chevron-up',
-          value: '#top'
+          icon: "fas fa-chevron-up",
+          value: "#top"
         },
         {
-          icon: 'fas fa-grip-lines',
-          value: '#middle'
+          icon: "fas fa-grip-lines",
+          value: "#middle"
         },
         {
-          icon: 'fas fa-chevron-down',
-          value: '#bottom'
+          icon: "fas fa-chevron-down",
+          value: "#bottom"
         }
       ]
     };
   },
   mounted() {
-    this.$store.commit('global/SET_INSIDE_NAVIGATION_PAGE',this.insideNavigationPage)
-    this.setTitle;
+    const { bannerContainer } = this.$refs;
+    const timeline = new gsap.timeline();
+
+    timeline
+      // .fromTo(
+      //   bannerContainer,
+      //   { opacity: 0,  x: -500, },
+      //   { opacity: 1, x: 0, ease: "circ.out" },
+      //   "-=.3"
+      // )
+      .from(bannerContainer, {
+        opacity: 0,
+        duration: 0.5,
+        x: -500,
+        ease: "circ.out"
+      });
+    this.$store.commit(
+      "global/SET_INSIDE_NAVIGATION_PAGE",
+      this.insideNavigationPage
+    );
+
     this.$nextTick(() => {
-      this.loading = false;
-    })
+      this.isloaded = true;
+      this.setTitle;
+    });
   },
   head() {
     return {
@@ -56,28 +83,25 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: this.$i18n.t('SEO.index.description')},
+          content: this.$i18n.t("SEO.index.description")
+        },
         {
           hid: "keywords",
           name: "keywords",
-          content: this.$i18n.t('SEO.index.keywords')
+          content: this.$i18n.t("SEO.index.keywords")
         },
-        {name: 'robots', hid: "robots", content:'index, follow'},
-        {name: 'author', hid: "author", content:'Jozaguts - Sagit Gutiérrez'},
-       
+        { name: "robots", hid: "robots", content: "index, follow" },
+        { name: "author", hid: "author", content: "Jozaguts - Sagit Gutiérrez" }
       ]
     };
   },
-  
+
   computed: {
     setTitle() {
       this.$route.fullPath === "/es"
         ? (this.title = "Jozaguts - Desarrollador web")
         : (this.title = "Jozaguts - Web Developer");
-    },
+    }
   }
 };
 </script>
-<style lang="sass">
-
-</style>

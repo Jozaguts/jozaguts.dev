@@ -38,7 +38,7 @@ export default {
   form: "Formulario de contacto",
   indexBanner: {
     h1: "Desarrollador Web",
-    h2: "Soy desarrollador web",
+    h2: "Intenta dejar este mundo un poco mejor de lo que lo encontraste",
     p: "Este es mi portafilio, area de juego y un lugar para compartir"
   },
   titleJob: "Desarrollador Web",

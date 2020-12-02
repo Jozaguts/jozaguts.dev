@@ -40,7 +40,7 @@ export default {
   form: "Contact Form",
   indexBanner: {
     h1: "Web Developer",
-    h2: "I'm a Web developer",
+    h2: "Try to leave this world a little better than you found it!",
     p: "Here you'll get my Ideas, projects and experience"
   },
   titleJob: "web Developer",
