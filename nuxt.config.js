@@ -57,6 +57,15 @@ export default {
    */
   modules: [
     "@nuxtjs/recaptcha",
+    '@nuxtjs/sitemap',
+    ['@nuxtjs/robots',
+      { 
+        /* module options */
+        UserAgent: '*',
+        Disallow: '/api/*',
+        SiteMap: '/sitemap.xml'
+      }
+    ],
     ["vue-scrollto/nuxt", { duration: 300 }],
     "@nuxtjs/axios",
     "@nuxtjs/proxy",
@@ -83,6 +92,21 @@ export default {
       }
     ]
   ],
+  sitemap: {
+    hostname: 'https://jozaguts.dev',
+    gzip: true,
+    exclude: [
+      '/api'
+    ],
+    routes: [
+      '/about-me',
+      '/blog',
+      '/resume',
+      '/es/about-me',
+      '/es/blog',
+      '/es/resume',
+    ]
+  },
   recaptcha: {
     /* reCAPTCHA options */
     hideBadge: true, // Hide badge element (v3 & v2 via size=invisible)
