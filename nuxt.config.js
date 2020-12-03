@@ -72,6 +72,7 @@ export default {
     [
       "nuxt-i18n",
       {
+        seo:true,
         detectBrowserLanguage: {
           useCookie: true,
           cookieKey: "i18n_redirected"
@@ -79,10 +80,12 @@ export default {
         locales: [
           {
             code: "es",
+            iso: 'es-MX',
             file: "es-MX.js"
           },
           {
             code: "en",
+            iso: 'en-US',
             file: "en-US.js"
           }
         ],
