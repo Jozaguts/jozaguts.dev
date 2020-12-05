@@ -24,6 +24,7 @@
           v-for="(route, index) in routes"
           :key="index.to"
           :to="route.to"
+          nuxt
           class=" my-2 "
         >
           <v-list-item-title

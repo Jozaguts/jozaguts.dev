@@ -15,6 +15,7 @@
         class=" font-weight-bold"
         exact
         :to="link.to"
+        nuxt
         ripple
       >
         <v-list-item-content class="text-capitalize" v-text="link.value" />
