@@ -59,7 +59,7 @@ export default {
         },
         {
           icon: "fab fa-behance",
-          value: "https://www.behance.net/jozaguts88a8"
+          value: "https://www.behance.net/jozaguts88a8/appreciated"
         },
         {
           icon: "fab fa-twitter",
@@ -71,11 +71,11 @@ export default {
         },
         {
           icon: "fab fa-instagram",
-          value: "https://www.instagram.com/jozagutsdev"
+          value: "https://www.instagram.com/jozagutsdev/"
         },
         {
           icon: "fab fa-github",
-          value: "https://www.github.com/jozaguts"
+          value: "https://github.com/jozaguts"
         }
       ]
     };
