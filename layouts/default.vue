@@ -90,7 +90,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: 'https://jozaguts/dev' + this.$route.path
+          href: 'https://jozaguts.dev' + this.$route.path
         }
       ]
     }

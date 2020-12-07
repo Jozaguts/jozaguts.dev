@@ -192,7 +192,9 @@
 export default {
   name: "about-me",
   head: {
-    title: 'About Me',
+    title:()=>{
+     return this.$i18n.locale === 'es' ? 'Acerca de' : "About Me";
+    },
     meta: [
       {hid: 'description', name: 'description', content: 'About page'}
     ],
@@ -224,6 +226,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$i18n.locale)
     this.$store.commit('global/SET_INSIDE_NAVIGATION_PAGE', this.insideNavigationPage)
   },
   computed: {
