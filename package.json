@@ -26,6 +26,7 @@
     "gsap": "^3.5.1",
     "node-fetch": "^2.6.1",
     "nuxt": "^2.0.0",
+    "nuxt-canonical": "^1.0.6",
     "nuxt-i18n": "^6.10.1",
     "vee-validate": "^3.3.9",
     "vue-pdf": "^4.2.0",
