@@ -56,6 +56,7 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    ['nuxt-canonical', { baseUrl: 'https://jozaguts.dev'}],
     "@nuxtjs/recaptcha",
     '@nuxtjs/sitemap',
     ['@nuxtjs/robots',
