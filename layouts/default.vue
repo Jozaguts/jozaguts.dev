@@ -5,7 +5,7 @@
         <v-list-item
           v-for="icon in socialMedia"
           :key="icon.icon"
-          :to="icon.value"
+          :href="icon.value"
           target="_blank"
         >
           <v-list-item-content class="text-center">
@@ -90,7 +90,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: 'https://jozaguts/dev' + this.$route.path
+          href: 'https://jozaguts.dev' + this.$route.path
         }
       ]
     }
