@@ -192,9 +192,7 @@
 export default {
   name: "about-me",
   head: {
-    title:()=>{
-     return this.$i18n.locale === 'es' ? 'Acerca de' : "About Me";
-    },
+    title: "About Me",
     meta: [
       {hid: 'description', name: 'description', content: 'About page'}
     ],

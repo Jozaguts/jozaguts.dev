@@ -20,16 +20,6 @@
 import NavBar from "~/components/NavBar";
 import { mapGetters } from "vuex";
 export default {
-  head() {
-    return {
-      link: [
-        {
-          rel: 'canonical',
-          href: 'https://jozaguts/dev' + this.$route.path
-        }
-      ]
-    }
-  },
   components: {  
     NavBar,
     FooterComponent:()=> import('~/components/Footer.vue'),
