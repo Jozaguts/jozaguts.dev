@@ -85,16 +85,6 @@ export default {
       return this.$store.getters["global/getInsideNavigationPage"];
     }
   },
-  // head() {
-  //   return {
-  //     link: [
-  //       {
-  //         rel: 'canonical',
-  //         href: 'https://jozaguts.dev' + this.$route.path
-  //       }
-  //     ]
-  //   }
-  // },
 };
 </script>
 
