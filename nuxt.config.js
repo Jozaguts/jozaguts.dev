@@ -1,5 +1,3 @@
-import colors from "vuetify/es5/util/colors";
-
 require("dotenv").config();
 const siteKey = process.env.SITE_KEY;
 export default {
@@ -73,7 +71,8 @@ export default {
     [
       "nuxt-i18n",
       {
-        seo:true,
+        seo:false,
+        trailingSlashes:true,
         detectBrowserLanguage: {
           useCookie: true,
           cookieKey: "i18n_redirected"
