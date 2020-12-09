@@ -179,14 +179,57 @@ export default {
   /*
    ** Build configuration
    */
+  
   build: {
+    app: ({ isDev }) => isDev ? '[name].js' : '[contenthash].js',
+    chunk: ({ isDev }) => isDev ? '[name].js' : '[contenthash].js',
+    css: ({ isDev }) => isDev ? '[name].css' : '[contenthash].css',
+    img: ({ isDev }) => isDev ? '[path][name].[ext]' : 'img/[contenthash:7].[ext]',
+    font: ({ isDev }) => isDev ? '[path][name].[ext]' : 'fonts/[contenthash:7].[ext]',
+    video: ({ isDev }) => isDev ? '[path][name].[ext]' : 'videos/[contenthash:7].[ext]',
+    extend (config, {isClient}) {
+      if (isClient){
+        config.optimization.splitChunks.maxSize = 1000;
+      }
+    },
+    html:{
+      minify:{
+        collapseBooleanAttributes: true,
+        decodeEntities: true,
+        minifyCSS: true,
+        minifyJS: true,
+        processConditionalComments: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        trimCustomFragments: true,
+        useShortDoctype: true,
+        minifyURLs: true,
+        removeComments: true,
+        removeEmptyElements: true,
+        preserveLineBreaks: false,
+        collapseWhitespace: true
+      }
+    },
+    optimization: {
+      minimize: true
+    },
+    splitChunks: {
+      chunks: 'all',
+      automaticNameDelimiter: '.',
+      name: undefined,
+      cacheGroups: {}
+    },
     transpile: ["vee-validate/dist/rules", "gsap"],
     terser: {
       extractComments: false // default was LICENSES
     },
+      extractCSS: true,
+    
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    // extend(config, ctx) {
+    //  
+    // }
   }
 };
