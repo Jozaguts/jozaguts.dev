@@ -1,0 +1,62 @@
+{
+  "projectsData": [
+    {
+      "title": "My store",
+      "id": 1,
+      "images": [
+        {
+          "src": "mystore.png",
+          "route": "/",
+          "altEn": "Home page of e-commerce built with laravel, vuejs and stripe",
+          "altEs": "Página de inicio de e-commerce construido con laravel, vuejs y stripe"
+        },
+        {
+          "src": "mystore2.png",
+          "route": "/checkout",
+          "altEn": "checkout section image and shop cart of e-commerce, items payments with stripe ",
+          "altEs": "imagen de de la sección  carrito de compras del e-commerce construido con laravel, vuejs y stripe"
+        },
+        {
+          "src": "mystore3.png",
+          "route": "/admin/products",
+          "altEn": "image list of products of e-commerce built with laravel, vuejs and stripe",
+          "altEs": "Image de lista de productos mostrados en el e-commerce construido con laravel, vuejs y stripe"
+        }
+      ],
+      "technologyStackIcons": [
+        {
+          "icon": "fab fa-laravel",
+          "color": "#FF2D20"
+        },
+        {
+          "icon": "fab fa-vuejs",
+          "color": "#4fc08d"
+        },
+        {
+          "icon": "fab fa-aws",
+          "color": "#FF9900"
+        }
+      ],
+      "socialMediaIcons": [
+        {
+          "icon": "fab fa-github",
+          "link": "https://github.com/jozaguts/my-store"
+        },
+        {
+          "icon": "fab fa-behance",
+          "link": ""
+        },
+        {
+          "icon": "fas fa-link",
+          "link": "https://my-store-jozaguts.herokuapp.com/"
+        },
+        {
+          "icon": "far fa-heart",
+          "link": ""
+        }
+      ],
+      "flex": 12,
+      "likes": 4
+    }
+  ]
+}

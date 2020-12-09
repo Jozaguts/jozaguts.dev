@@ -39,7 +39,8 @@ export default {
   indexBanner: {
     h1: "Desarrollador Web",
     h2: "Intenta dejar este mundo un poco mejor de lo que lo encontraste",
-    p: "Este es mi portafilio, area de juego y un lugar para compartir"
+    p: "Este es mi portafilio, area de juego y un lugar para compartir",
+    alt: "imagen de tecnologías web tales laravel, vuejs, nuxtjs y más"
   },
   titleJob: "Desarrollador Web",
   degree: "Ingeniería en Tics",

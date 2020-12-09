@@ -1,5 +1,5 @@
 <template>
-      <v-parallax dark :src="technologies" >
+      <v-parallax dark :src="technologies" :alt="$t('indexBanner.alt')" >
         <v-row align="center" justify="center">
           <v-col class="text-center" cols="12"  ref="box">
             <h1
@@ -8,7 +8,7 @@
             >
              {{$t('indexBanner.h1')}}
             </h1>
-            <h4 class="subheading accent--text" ref="name"> {{$t('indexBanner.h2')}}</h4>
+            <h2 class="subheading accent--text" ref="name"> {{$t('indexBanner.h2')}}</h2>
           </v-col>
         </v-row>
       </v-parallax>
