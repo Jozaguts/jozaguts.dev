@@ -71,7 +71,7 @@ export default {
     [
       "nuxt-i18n",
       {
-        seo:false,
+        seo: true,
         trailingSlashes:true,
         detectBrowserLanguage: {
           useCookie: true,
