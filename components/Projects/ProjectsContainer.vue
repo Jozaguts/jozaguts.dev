@@ -33,7 +33,7 @@
 
 <script>
 import {TimelineLite} from 'gsap'
-import ProjectJson from "@/components/projects/projects.json"
+import ProjectJson from "@/components/Projects/ProjectsData.json"
 import ProjectComponent from "@/components/Projects/Project"
 
 export default {
