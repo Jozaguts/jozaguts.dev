@@ -3,6 +3,7 @@
     <v-col>
       <v-parallax
         :src="bannerImage"
+        :alt="$t('indexBanner.alt')"
       >
         <v-row
           align="center"

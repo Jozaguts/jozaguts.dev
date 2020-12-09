@@ -81,8 +81,8 @@ export default {
   computed: {
     setTitle() {
       this.$route.fullPath === "/es"
-        ? (this.title = "Web Developer Freelance | Jozaguts")
-        : (this.title = "Desarrollador web Freelance | Jozaguts");
+        ? (this.title = "Desarrollador web Freelance | Jozaguts")
+        :  (this.title = "Web Developer Freelance | Jozaguts");
     }
   }
 };
