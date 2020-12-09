@@ -24,16 +24,7 @@ export default {
         lang: this.$i18n.locale
       },
       meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.$i18n.t("SEO.resume.description")
-        },
-        {
-          hid: "keywords",
-          name: "keywords",
-          content: this.$i18n.t("SEO.resume.keywords")
-        },
+        {hid: "description", name: "description", content: this.$i18n.t("SEO.resume.description")},
         { name: "robots", hid: "robots", content: "index, follow" },
         { name: "author", hid: "author", content: "Jozaguts - Sagit Gutiérrez" }
       ]
