@@ -70,16 +70,28 @@ export default {
   SEO: {
     index: {
       description:
-        "Personal website projects ideas experience and development issues ",
+        "Hola, soy Sagit Gutiérrez. Soy un desarrollador web. Aquí puedes ver mi trabajo y secciones como  inicio. acerca. portafolio. blog. contacto .... ",
       keywords:
         "web developer,desarrollador web,proyectos,projects,vuejs,laravel,blog,vuetify,pagina web,sitio web, freelance, AWS, EC2, R53, S3, "
     },
     resume: {
       description:
-        "Resume, en formato PDF de Sagit Gutierrez como desarrollador web",
+        "Currículo vítae, en formato PDF de Sagit Gutierrez como desarrollador web",
       keywords:
         "PDF, Jozaguts, Resume, Sagit Gutiérrez CV, CV Jozaguts, experiencia laborarl"
-    }
+    },
+    about: {
+      description:
+        "Acerca de Sagit Gutiérrez. Hola soy desarrollador web,  ¿Interesado en trabajar juntos? revisa mi currículo, no dudes en ponerte en contacto",
+      keywords:
+        "web developer,web projects, projects, vuejs , laravel , blog , vuetify, freelance, AWS, EC2, R53, S3, "
+    },
+    blog: {
+      description:
+        "Blog enfocado en tecnologías web, consejos y opiniones que te pueden ayudar en tu día a día como desarrollador (Laravel, VueJs, JavaScript PHP y más)",
+      keywords:
+        "PDF, Jozaguts, Resume, Sagit Gutiérrez CV, CV Jozaguts, experiencia laborarl"
+    },
   },
   rickPhrase:
     'Nadie existe a propósito. Nadie pertenece a ninguna parte. Todos vamos a morir. <strong class="primary--text">¡Vamos a desarrollar!</strong>'

@@ -86,8 +86,8 @@ export default {
     },
     setTitle() {
       this.$i18n.locale === 'es'
-        ? (this.title = "Currículo vite de Sagit Gutiérrez como desarrollador web en formato PDF")
-        : (this.title = "Sagit Gutierrez's resume as a web developer in PDF format");
+        ? (this.title = "Currículo vite de Sagit Gutiérrez | Jozaguts")
+        : (this.title = "Sagit Gutierrez's resume | Jozaguts");
     }
   }
 };

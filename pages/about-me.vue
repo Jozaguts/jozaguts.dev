@@ -204,7 +204,11 @@ export default {
     return{
       title: this.title,
       meta: [
-        {hid: 'description', name: 'description', content: 'About page'}
+        {
+          hid: "description",
+          name: "description",
+          content: this.$i18n.t("SEO.about.description")
+        },
       ],
     }
   },
@@ -298,8 +302,8 @@ export default {
     },
     setTitle() {
       this.isSpanishLanguage
-        ? (this.title = "Acerca de Sagit Gutiérrez | Desarrollador | Jozaguts ")
-        : (this.title = "About Sagit Gutiérrez | Developer | Jozaguts");
+        ? (this.title = "Acerca de Sagit Gutiérrez  | Jozaguts ")
+        : (this.title = "About Sagit Gutiérrez | Jozaguts");
     }
   },
 }

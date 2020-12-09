@@ -79,15 +79,27 @@ export default {
   SEO: {
     index: {
       description:
-        "Personal website projects ideas experience and development issues ",
+        "Hello, I'm Sagit Gutierrez. I'm a web developer. View my work. home. about. portfolio. blog. contact ... ",
       keywords:
         "web developer,web projects, projects, vuejs , laravel , blog , vuetify, freelance, AWS, EC2, R53, S3, "
     },
     resume: {
-      description: "PDF resume by Sagit Gutierrez as a web developer",
+      description: "Sagit Gutierrez's resume as a web developer in PDF format",
       keywords:
         "PDF, Jozaguts, Resume, Sagit Gutiérrez CV, CV Jozaguts, work experience"
-    }
+    },
+    about: {
+      description:
+        "About Sagit Gutierrez. Hi I am a web developer, interested in working together? check out my resume, don't feel free to contact me",
+      keywords:
+        "web developer,web projects, projects, vuejs , laravel , blog , vuetify, freelance, AWS, EC2, R53, S3, "
+    },
+    blog: {
+      description:
+        "Blog focused on web technologies, tips and opinions that can help you in your day to day as a developer (Laravel, VueJs, JavaScript PHP and more)",
+      keywords:
+        "PDF, Jozaguts, Resume, Sagit Gutiérrez CV, CV Jozaguts, experiencia laborarl"
+    },
   },
   rickPhrase:
     "Nobody exists on purpose. Nobody belongs anywhere. Everybody's gonna die. <strong class=\"primary--text\">let's  go to develop!</strong>"

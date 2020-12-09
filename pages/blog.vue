@@ -17,7 +17,7 @@ export default {
         { 
           hid: 'description',
           name: 'description',
-          content: 'Home page description'
+          content: this.$i18n.t('SEO.blog.description')
         }
       ],
     }
@@ -36,7 +36,7 @@ export default {
     setTitle() {
       this.$i18n.locale === 'es'
         ? (this.title = "Blog de tecnologías web y  temas sobre  Laravel, VueJs, NuxtJs y mas")
-        : (this.title = "Web technologies blob and topics about Laravel, VueJs, NuxtJs and more");
+        : (this.title = "Web technologies blog and topics about Laravel, VueJs, NuxtJs and more");
     }
   },
   mounted(){
