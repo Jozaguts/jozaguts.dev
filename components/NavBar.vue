@@ -1,8 +1,8 @@
 <template>
   <v-app-bar dense elevate-on-scroll height="80" app>
     <router-link class="d-flex align-center" :to="{ path: homeRoute }">
-      <img src="~/assets/img/logoJz.svg" alt="logo" width="50" class="mr-2" />
-      <h1 class="d-none d-md-flex d-lg-flex">Jozaguts</h1>
+      <img src="~/assets/img/logoJz.svg" title="logo" alt="image logo of jozaguts " width="50" class="mr-2" />
+      <h2 class="d-none d-md-flex d-lg-flex">Jozaguts</h2>
     </router-link>
     <v-spacer></v-spacer>
     <v-list
@@ -17,6 +17,7 @@
         :to="link.to"
         nuxt
         ripple
+        tag="a"
       >
         <v-list-item-content class="text-capitalize" v-text="link.value" />
       </v-list-item>

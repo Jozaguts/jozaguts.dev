@@ -6,25 +6,33 @@
       </v-col>
       <v-col class="text-center ">
         <v-icon
+          tag="img"
+          alt="expressjs log format svg "
+          title="log of expressjs"
           size="100"
           class="white pa-2"
           v-text="'$vuetify.icons.express'"
         ></v-icon>
       </v-col>
       <v-col class="text-center ">
-        <v-icon size="100" v-text="'$vuetify.icons.nuxtjs'"></v-icon>
+        <v-icon size="100" v-text="'$vuetify.icons.nuxtjs'" alt="nuxtjs log format svg "
+                title="log of nuxtjs"></v-icon>
       </v-col>
       <v-col class="text-center ">
-        <v-icon size="100" v-text="'$vuetify.icons.vue'"></v-icon>
+        <v-icon size="100"  alt="vue log format svg "
+                title="log of vue" v-text="'$vuetify.icons.vue'"></v-icon>
       </v-col>
       <v-col class="text-center ">
-        <v-icon size="100" v-text="'$vuetify.icons.vuetify'"></v-icon>
+        <v-icon size="100"  alt="vuetify log format svg "
+                title="log of vuetify" v-text="'$vuetify.icons.vuetify'"></v-icon>
+      </v-col>
+      <v-col class="text-center ">  
+        <v-icon size="100"  alt="greensock log format svg "
+                title="log of greensock" v-text="'$vuetify.icons.greensock'"></v-icon>
       </v-col>
       <v-col class="text-center ">
-        <v-icon size="100" v-text="'$vuetify.icons.greensock'"></v-icon>
-      </v-col>
-      <v-col class="text-center ">
-        <v-icon size="100" v-text="'$vuetify.icons.sendgrid'"></v-icon>
+        <v-icon size="100"  alt="sendgrid log format svg "
+                title="log of sendgrid" v-text="'$vuetify.icons.sendgrid'"></v-icon>
       </v-col>
     </v-row>
     <v-row>

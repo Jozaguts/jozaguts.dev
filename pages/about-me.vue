@@ -9,12 +9,14 @@
                 elevation="0"
                 height="150"
                 width="100"
-                :src="img"
-              ></v-img>
+                :src="img.src"
+                :title="img.title"
+                :alt="img.alt"
+              />
             </v-col>
             <v-col cols="8" md="7" lg="7">
-              <v-card-title class="font-weight-bold"> Sagit Gutiérrez</v-card-title>
-              <v-card-subtitle>Web Developer</v-card-subtitle>
+              <v-card-title class="font-weight-bold"> <h4>Sagit Gutiérrez</h4> </v-card-title>
+              <v-card-subtitle><h5>Web Developer</h5></v-card-subtitle>
             </v-col>
           </v-row>
         </v-card>
@@ -48,10 +50,7 @@
             </v-icon>
             <h2 class="text-subtitle-2 "> {{ $t('aboutMe') }}</h2>
           </header>
-          <div class="content">
-            <p class=" mx-8">
-              {{ $t('aboutMeContent') }}
-            </p>
+          <div class="content mx-8" v-html="$t('aboutMeContent')">
           </div>
         </div>
       </v-col>
@@ -65,9 +64,9 @@
           </header>
           <div class="content mt-5">
             <v-card outlined elevation="10">
-              <v-card-title> {{ $t('degree') }}</v-card-title>
-              <v-card-subtitle>{{ $t('university.date') }}</v-card-subtitle>
-              <v-card-text>{{ $t('university.name') }}</v-card-text>
+              <v-card-title> <h4>{{ $t('degree') }}</h4></v-card-title>
+              <v-card-subtitle><h5>{{ $t('university.date') }}</h5></v-card-subtitle>
+              <v-card-text><p>{{ $t('university.name') }}</p></v-card-text>
             </v-card>
           </div>
         </div>
@@ -138,19 +137,25 @@
                     >
                       <v-toolbar :flat="isMobile" :height="isMobile?30:45"
                                  :extension-height="isMobile?40:20">
-                        <v-toolbar-title class="font-weight-bold text-truncate accent--text text-subtitle-1"
-                                         v-text="course.name">
+                        <v-toolbar-title class="font-weight-bold text-truncate accent--text">
+                          <h4 class="text-subtitle-1">{{course.name}}</h4>
                         </v-toolbar-title>
                       </v-toolbar>
                       <v-list-item>
                         <v-list-item-content class="mb-4 pt-0">
                           <div class="overline mb-4">
-                            <v-img max-width="120" :src="course.img.src"/>
+                            <v-img max-width="120" :src="course.img.src" 
+                                   :title="isSpanishLanguage ?  ` logo de ${course.school}`: ` logo of ${course.school}` "
+                                   :alt="isSpanishLanguage 
+                                     ? `Logo de  ${course.school}` 
+                                    : `Logo of ${course.school}`"
+                            />
                           </div>
                           <v-list-item-title class="headline  mt-0">
-                            {{ course.teacher.name }}
+                            <h5>  {{ course.teacher.name }}</h5>
+                           
                           </v-list-item-title>
-                          <v-list-item-subtitle>{{ course.teacher.workAt }}</v-list-item-subtitle>
+                          <v-list-item-subtitle><h6>{{ course.teacher.workAt }}</h6></v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-avatar
                           tile
@@ -160,7 +165,11 @@
                           <v-img
                             class="elevation-6"
                             :src="course.teacher.img"
-                          ></v-img>
+                            :title="isSpanishLanguage ?   `Profesor del curso ${course.name}` : `${course.teacher.name} teacher of course`" 
+                            :alt="isSpanishLanguage 
+                            ? `Imagen de ${course.teacher.name} profesor en FrontendMasters` 
+                            : `image of'${course.teacher.name} teacher at FrontendMasters`"
+                          />
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-card-actions>
@@ -191,15 +200,26 @@
 
 export default {
   name: "about-me",
-  head: {
-    title: "About Me",
-    meta: [
-      {hid: 'description', name: 'description', content: 'About page'}
-    ],
+  head() {
+    return{
+      title: this.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.$i18n.t("SEO.about.description")
+        },
+      ],
+    }
   },
   data() {
     return {
-      img: require("~/assets/img/perfil.png"),
+      title: '',
+      img: {
+        src: require("~/assets/img/perfil.png"),
+        alt: this.$i18n.locale === 'es' ? "Imagen de José Sagit Gutiérrez Terrazas" : "Image of José Sagit Gutiérrez Terrazas" ,
+        title: this.$i18n.locale==='es' ? "Desarrollador Sagit Gutierrez Desarrollador" : "Developer Jose Sagit Gutierrez Terrazas" 
+      },
       workHistory: [
         {
           companyName: 'Axovia Marketing',
@@ -211,7 +231,7 @@ export default {
         {
           icon: 'fas fa-chevron-up',
           value: '#top'
-        },
+        },  
         {
           icon: 'fas fa-grip-lines',
           value: '#middle'
@@ -224,7 +244,9 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$i18n.locale)
+    this.$nextTick(() => {
+      this.setTitle;
+    });
     this.$store.commit('global/SET_INSIDE_NAVIGATION_PAGE', this.insideNavigationPage)
   },
   computed: {
@@ -274,6 +296,14 @@ export default {
             "Git",]
         },
       ]
+    },
+    isSpanishLanguage(){
+      return this.$i18n.locale === 'es'
+    },
+    setTitle() {
+      this.isSpanishLanguage
+        ? (this.title = "Acerca de Sagit Gutiérrez  | Jozaguts ")
+        : (this.title = "About Sagit Gutiérrez | Jozaguts");
     }
   },
 }
