@@ -19,7 +19,7 @@
 export default {
   head() {
     return {
-      title: this.name,
+      title: this.title,
       htmlAttrs: {
         lang: this.$i18n.locale
       },
@@ -41,13 +41,14 @@ export default {
   },
   data() {
     return {
-      name: "Resume | PDF",
+      title: "Resume | PDF",
       loading: false,
       lang: this.$i18n.locale
     };
   },
   async mounted() {
     await this.$recaptcha.init();
+    this.setTitle
   },
   methods: {
     async onSubmit() {
@@ -79,12 +80,14 @@ export default {
       }
     }
   },
-  // components: {
-  //   pdf
-  // },
   computed: {
     resume() {
       return this.$i18n.locale === "en" ? "/resumeEn.pdf" : "/resumeEs.pdf";
+    },
+    setTitle() {
+      this.$i18n.locale === 'es'
+        ? (this.title = "Currículo vite de Sagit Gutiérrez como desarrollador web en formato PDF")
+        : (this.title = "Sagit Gutierrez's resume as a web developer in PDF format");
     }
   }
 };

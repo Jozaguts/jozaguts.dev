@@ -51,22 +51,13 @@ export default {
     const timeline = new gsap.timeline();
 
     timeline
-      // .fromTo(
-      //   bannerContainer,
-      //   { opacity: 0,  x: -500, },
-      //   { opacity: 1, x: 0, ease: "circ.out" },
-      //   "-=.3"
-      // )
       .from(bannerContainer, {
         opacity: 0,
         duration: 0.5,
         x: -500,
         ease: "circ.out"
       });
-    this.$store.commit(
-      "global/SET_INSIDE_NAVIGATION_PAGE",
-      this.insideNavigationPage
-    );
+    this.$store.commit("global/SET_INSIDE_NAVIGATION_PAGE", this.insideNavigationPage);
 
     this.$nextTick(() => {
       this.isloaded = true;
@@ -99,8 +90,8 @@ export default {
   computed: {
     setTitle() {
       this.$route.fullPath === "/es"
-        ? (this.title = "Jozaguts - Desarrollador web")
-        : (this.title = "Jozaguts - Web Developer");
+        ? (this.title = "Web Developer Freelance | Jozaguts")
+        : (this.title = "Desarrollador web Freelance | Jozaguts");
     }
   }
 };
