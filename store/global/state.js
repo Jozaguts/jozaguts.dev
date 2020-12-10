@@ -4,29 +4,29 @@ export default () => ({
   linksData: {
     en: [
       {
-        to: "/about-me/",
+        to: "/about-me",
         value: "About Me"
       },
       {
-        to: "/blog/",
+        to: "/blog",
         value: "Blog"
       },
       {
-        to: "/resume/",
+        to: "/resume",
         value: "Resume"
       }
     ],
     es: [
       {
-        to: "/es/about-me/",
+        to: "/es/about-me",
         value: "Acerca de"
       },
       {
-        to: "/es/blog/",
+        to: "/es/blog",
         value: "Blog"
       },
       {
-        to: "/es/resume/",
+        to: "/es/resume",
         value: "Resume"
       }
     ]
