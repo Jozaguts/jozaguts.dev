@@ -19,6 +19,30 @@ import { CSSPlugin } from "gsap/CSSPlugin";
 gsap.registerPlugin(CSSPlugin);
 
 export default {
+  async asyncData({app}){
+    try {
+      let title = '';
+      app.i18n.locale === 'es'
+        ? title = "Desarrollador web Freelance | Jozaguts"
+        : title = "Web Developer Freelance | Jozaguts"
+      return {title}
+    }catch(e) {
+      console.log(e.message)
+    }
+  },
+  head() {
+    return {
+      title: this.title,
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      },
+      meta: [
+        {hid: "description", name: "description", content: this.$i18n.t("SEO.index.description")},
+        { name: "robots", hid: "robots", content: "index, follow" },
+        { name: "author", hid: "author", content: "Jozaguts - Sagit Gutiérrez" }
+      ]
+    };
+  },
   components: {
     ProjectsContainer: () => import("@/components/Projects/ProjectsContainer"),
     IndexBanner: () => import("@/components/Banners/IndexBanner"),
@@ -28,7 +52,6 @@ export default {
   },
   data() {
     return {
-      title: "Home",
       isloaded: false,
       insideNavigationPage: [
         {
@@ -61,29 +84,7 @@ export default {
 
     this.$nextTick(() => {
       this.isloaded = true;
-      this.setTitle;
     });
   },
-  head() {
-    return {
-      title: this.title,
-      htmlAttrs: {
-        lang: this.$i18n.locale
-      },
-      meta: [
-        {hid: "description", name: "description", content: this.$i18n.t("SEO.index.description")},
-        { name: "robots", hid: "robots", content: "index, follow" },
-        { name: "author", hid: "author", content: "Jozaguts - Sagit Gutiérrez" }
-      ]
-    };
-  },
-
-  computed: {
-    setTitle() {
-      this.$route.fullPath === "/es"
-        ? (this.title = "Desarrollador web Freelance | Jozaguts")
-        :  (this.title = "Web Developer Freelance | Jozaguts");
-    }
-  }
 };
 </script>

@@ -200,6 +200,17 @@
 
 export default {
   name: "about-me",
+  async asyncData({app}){
+    try {
+      let title = '';
+      app.i18n.locale === 'es'
+        ? title = "Acerca de Sagit Gutiérrez | Jozaguts" 
+        : title = "About Sagit Gutiérrez | Jozaguts"
+      return {title}
+    }catch(e) {
+      console.log(e.message)
+    }
+  },
   head() {
     return{
       title: this.title,
@@ -214,7 +225,6 @@ export default {
   },
   data() {
     return {
-      title: '',
       img: {
         src: require("~/assets/img/perfil.png"),
         alt: this.$i18n.locale === 'es' ? "Imagen de José Sagit Gutiérrez Terrazas" : "Image of José Sagit Gutiérrez Terrazas" ,
@@ -300,11 +310,6 @@ export default {
     isSpanishLanguage(){
       return this.$i18n.locale === 'es'
     },
-    setTitle() {
-      this.isSpanishLanguage
-        ? (this.title = "Acerca de Sagit Gutiérrez  | Jozaguts ")
-        : (this.title = "About Sagit Gutiérrez | Jozaguts");
-    }
   },
 }
 </script>
