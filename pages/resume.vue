@@ -17,6 +17,17 @@
 
 <script>
 export default {
+  async asyncData({app}){
+    try {
+      let title = '';
+      app.i18n.locale === 'es'
+        ? title = "Currículo vite de Sagit Gutierrez | Jozaguts"
+        : title = "Sagit Gutierrez's resume | Jozaguts"
+      return {title}
+    }catch(e) {
+      console.log(e.message)
+    }
+  },
   head() {
     return {
       title: this.title,
@@ -32,7 +43,6 @@ export default {
   },
   data() {
     return {
-      title: "Resume | PDF",
       loading: false,
       lang: this.$i18n.locale
     };
@@ -75,11 +85,6 @@ export default {
     resume() {
       return this.$i18n.locale === "en" ? "/resumeEn.pdf" : "/resumeEs.pdf";
     },
-    setTitle() {
-      this.$i18n.locale === 'es'
-        ? (this.title = "Currículo vite de Sagit Gutiérrez | Jozaguts")
-        : (this.title = "Sagit Gutierrez's resume | Jozaguts");
-    }
   }
 };
 </script>

@@ -189,7 +189,7 @@ export default {
     video: ({ isDev }) => isDev ? '[path][name].[ext]' : 'videos/[contenthash:7].[ext]',
     extend (config, {isClient}) {
       if (isClient){
-        config.optimization.splitChunks.maxSize = 1000;
+        config.optimization.splitChunks.maxSize = 200000;
       }
     },
     html:{
