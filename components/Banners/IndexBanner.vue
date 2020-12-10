@@ -2,10 +2,7 @@
       <v-parallax dark :src="technologies" :alt="$t('indexBanner.alt')" >
         <v-row align="center" justify="center">
           <v-col class="text-center" cols="12"  ref="box">
-            <h1
-              class="main-title font-weight-bold mb-4 black--text primary d-inline"
-              ref="title"
-            >
+            <h1 class="main-title font-weight-bold mb-4 black--text primary d-inline"  ref="title">
              {{$t('indexBanner.h1')}}
             </h1>
             <h2 class="subheading accent--text" ref="name"> {{$t('indexBanner.h2')}}</h2>

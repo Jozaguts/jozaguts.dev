@@ -54,7 +54,7 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    ['nuxt-canonical', { baseUrl: 'https://jozaguts.dev'}],
+    ['nuxt-canonical', { baseUrl: 'https://jozaguts.dev', trailingSlashes: false}],
     "@nuxtjs/recaptcha",
     '@nuxtjs/sitemap',
     ['@nuxtjs/robots',
@@ -72,7 +72,7 @@ export default {
       "nuxt-i18n",
       {
         seo: true,
-        trailingSlashes:true,
+        trailingSlashes:false,
         detectBrowserLanguage: {
           useCookie: true,
           cookieKey: "i18n_redirected"
